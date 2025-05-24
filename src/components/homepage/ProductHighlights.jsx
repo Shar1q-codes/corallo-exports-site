@@ -1,9 +1,10 @@
 // ===============================
 // 📦 Component: ProductHighlights
+// 🏠 Location: components/homepage/
 // 🎯 Purpose: Homepage product list section
 // ===============================
 
-import "../styles/ProductHighlights.css";
+import "../../styles/components/homepage/ProductHighlights.css";
 
 export default function ProductHighlights() {
   const products = [

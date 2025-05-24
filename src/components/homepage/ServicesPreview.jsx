@@ -1,9 +1,10 @@
 // ===============================
 // 📦 Component: ServicesPreview
+// 🏠 Location: components/homepage/
 // 🎯 Purpose: Homepage services snapshot
 // ===============================
 
-import "../styles/ServicesPreview.css";
+import "../../styles/components/homepage/ServicesPreview.css";
 import {
   Globe2,
   ShieldCheck,

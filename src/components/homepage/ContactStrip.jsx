@@ -1,9 +1,10 @@
 // ===============================
 // 📦 Component: ContactStrip
+// 🏠 Location: components/homepage/
 // 🎯 Purpose: Mid-page CTA for direct communication
 // ===============================
 
-import "../styles/ContactStrip.css";
+import "../../styles/components/homepage/ContactStrip.css";
 import { Mail, PhoneCall } from "lucide-react";
 import { Link } from "react-router-dom";
 

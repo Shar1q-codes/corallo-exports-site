@@ -1,9 +1,10 @@
 // ===============================
 // 📦 Component: FAQsPreview
+// 🏠 Location: components/homepage/
 // 🎯 Purpose: Preview key questions + link to FAQ page
 // ===============================
 
-import "../styles/FAQsPreview.css";
+import "../../styles/components/homepage/FAQsPreview.css";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";

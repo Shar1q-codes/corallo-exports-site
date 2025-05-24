@@ -1,9 +1,10 @@
 // ===============================
 // 📦 Component: CTAStrip
+// 🏠 Location: components/homepage/
 // 🎯 Purpose: Encourage user action before footer
 // ===============================
 
-import "../styles/CTAStrip.css";
+import "../../styles/components/homepage/CTAStrip.css";
 import { Link } from "react-router-dom";
 
 export default function CTAStrip() {

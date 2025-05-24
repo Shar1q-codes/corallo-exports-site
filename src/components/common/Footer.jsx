@@ -1,9 +1,10 @@
 // ===============================
 // 📦 Component: Footer
+// 🏠 Location: components/common/
 // 🎯 Purpose: Global footer for all pages
 // ===============================
 
-import "../styles/Footer.css";
+import "../../styles/components/common/Footer.css";
 import { Link } from "react-router-dom";
 
 export default function Footer() {

@@ -1,13 +1,17 @@
 // ===============================
 // 📦 Component: HeroSection
+// 🏠 Location: components/homepage/
+// 🎯 Purpose: Homepage hero banner
 // ===============================
 
-import "../styles/HeroSection.css";
+import "../../styles/components/homepage/HeroSection.css";
+import heroBg from "../../assets/home/hero-background.png";
 
 export default function HeroSection() {
   return (
     <section
       className="hero"
+      style={{ background: `url(${heroBg}) center/cover no-repeat` }}
       role="banner"
       aria-label="Corallo Global Trade Hero Section"
     >

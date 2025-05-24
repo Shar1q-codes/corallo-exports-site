@@ -1,11 +1,13 @@
 // ===============================
 // 📦 Component: AboutPreview
+// 🏠 Location: components/homepage/
 // 🎯 Purpose: Homepage About section preview
 // ===============================
 
-import "../styles/AboutPreview.css";
+import "../../styles/components/homepage/AboutPreview.css";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import aboutPreviewImg from "../../assets/home/about-preview.png";
 
 export default function AboutPreview() {
   return (
@@ -23,7 +25,7 @@ export default function AboutPreview() {
           viewport={{ once: true }}
         >
           <img
-            src="/assets/about-preview.png"
+            src={aboutPreviewImg}
             alt="Business handshake at port"
             loading="lazy"
           />

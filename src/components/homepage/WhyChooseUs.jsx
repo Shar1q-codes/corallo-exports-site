@@ -1,9 +1,10 @@
 // ===============================
 // 📦 Component: WhyChooseUs
+// 🏠 Location: components/homepage/
 // 🎯 Purpose: Trust-building section for homepage
 // ===============================
 
-import "../styles/WhyChooseUs.css";
+import "../../styles/components/homepage/WhyChooseUs.css";
 import { Globe, Handshake, ShieldCheck, Layers3 } from "lucide-react";
 
 export default function WhyChooseUs() {
