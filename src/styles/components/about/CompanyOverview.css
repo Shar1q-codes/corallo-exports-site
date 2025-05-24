@@ -1,0 +1,14 @@
+.about-block {
+  margin-bottom: 3rem;
+}
+
+.about-block h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.about-block p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
