@@ -1,0 +1,43 @@
+/* ===============================
+   🎨 Global Theme Configuration
+   =============================== */
+
+:root {
+  /* 🔶 Brand Colors */
+  --primary-color: #7b3411; /* Industrial ship rust (main brand color) */
+  --primary-hover: #652a0e; /* Rust hover variant */
+  --secondary-color: #1b1f3b; /* Deep navy for backgrounds, accents */
+  --accent-color: #b87333; /* Copper highlight for borders/buttons */
+  --background-color: #f4f4f4; /* Light industrial background (updated) */
+  --card-bg: #ffffff; /* Section or card background for contrast */
+  --text-color: #333333; /* Neutral dark text color */
+
+  /* 🔤 Typography */
+  --font-header: "Lato", sans-serif; /* Elegant, modern header font */
+  --font-body: "Inter", sans-serif; /* Highly readable body text font */
+
+  /* 🧱 UI Constants */
+  --radius: 12px; /* Default border radius */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft universal shadow */
+}
+
+/* ===============================
+   🖥️ Base Reset & Typography
+   =============================== */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}

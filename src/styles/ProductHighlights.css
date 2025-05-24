@@ -1,0 +1,84 @@
+/* ===============================
+   🎨 Styles: Product Highlights Section
+   =============================== */
+
+.product-highlights {
+  background-color: var(--background-color);
+  padding: 5rem 1.5rem;
+}
+
+.product-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-inline: 1rem; /* ✅ Adds horizontal safety */
+  box-sizing: border-box; /* ✅ Prevents layout overflow */
+}
+
+.section-title {
+  text-align: center;
+  font-family: var(--font-header);
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  color: var(--accent-color);
+  margin-bottom: 3rem;
+}
+
+/* 📋 Product List Styling */
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.product-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background-color: var(--card-bg);
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 🧩 Emoji Icon */
+.emoji {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* 📝 Text Block */
+.product-text h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.4rem;
+  color: var(--primary-color);
+}
+
+.product-text p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* ===============================
+   📱 Responsive Enhancements
+   =============================== */
+
+@media (max-width: 600px) {
+  .product-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .emoji {
+    font-size: 1.8rem;
+  }
+}
