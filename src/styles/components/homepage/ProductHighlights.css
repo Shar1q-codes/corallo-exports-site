@@ -8,10 +8,23 @@
 }
 
 .product-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding-inline: 1rem; /* ✅ Adds horizontal safety */
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
   box-sizing: border-box; /* ✅ Prevents layout overflow */
+  align-items: flex-start;
+}
+
+.product-card {
+  min-height: 340px;
+  max-width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .section-title {

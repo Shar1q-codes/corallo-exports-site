@@ -16,8 +16,11 @@ export default function Footer() {
         {/* Brand */}
         <div className="footer-brand">
           <h3>Corallo Exports & Imports</h3>
-          <p>Your trusted global trade partner.</p>
-          <p className="footer-tagline">Built for the Long Haul.</p>
+          <p>
+            Your trusted global trade partner, connecting businesses worldwide
+            with quality products and reliable services.
+          </p>
+          <p className="footer-tagline">Built for the Long Haul</p>
         </div>
 
         {/* Navigation Links */}
@@ -25,28 +28,65 @@ export default function Footer() {
           <h4>Quick Links</h4>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">
+                <i className="fas fa-home"></i>Home
+              </Link>
             </li>
             <li>
-              <Link to="/about">About Us</Link>
+              <Link to="/about">
+                <i className="fas fa-info-circle"></i>About Us
+              </Link>
             </li>
             <li>
-              <Link to="/services">Services</Link>
+              <Link to="/services">
+                <i className="fas fa-cogs"></i>Services
+              </Link>
             </li>
             <li>
-              <Link to="/products">Products</Link>
+              <Link to="/products">
+                <i className="fas fa-box"></i>Products
+              </Link>
             </li>
             <li>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact">
+                <i className="fas fa-envelope"></i>Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="/faqs">
+                <i className="fas fa-question-circle"></i>FAQs
+              </Link>
             </li>
           </ul>
         </div>
 
         {/* Contact Info */}
         <div className="footer-contact">
-          <h4>Contact</h4>
-          <p>Email: info@coralloexports.com</p>
-          <p>Phone: +91 99988 87777</p>
+          <h4>Contact Us</h4>
+          <ul className="contact-list">
+            <li>
+              <i className="fas fa-envelope"></i>
+              <a href="mailto:info@coralloexim.com">info@coralloexim.com</a>
+            </li>
+            <li>
+              <i className="fas fa-phone"></i>
+              <a href="tel:+91XXXXXXXXXX">+91-XXXXXXXXXX</a>
+            </li>
+            <li>
+              <i className="fas fa-globe"></i>
+              <a
+                href="https://www.coralloexim.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                www.coralloexim.com
+              </a>
+            </li>
+            <li>
+              <i className="fas fa-clock"></i>
+              <span>Mon - Fri: 9:00 AM - 6:00 PM IST</span>
+            </li>
+          </ul>
         </div>
       </div>
 

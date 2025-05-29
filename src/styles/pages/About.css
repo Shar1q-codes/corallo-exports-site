@@ -1,0 +1,30 @@
+.about-section {
+  width: 100%;
+  background: var(--background-color);
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Ensure consistent spacing between sections */
+.about-block {
+  margin-bottom: 4rem;
+}
+
+.about-block:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 2rem 1rem;
+  }
+
+  .about-block {
+    margin-bottom: 3rem;
+  }
+}
