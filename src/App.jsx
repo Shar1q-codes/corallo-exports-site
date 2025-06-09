@@ -19,9 +19,11 @@ import NotFound from "./pages/NotFound";
 import Navigation from "./components/common/Navigation";
 import Footer from "./components/common/Footer";
 import ScrollToTop from "./components/common/ScrollToTop";
+import NominateNow from "./components/common/NominateNow";
 
 // 🎨 Global Styles
 import "./styles/global.css";
+import "./styles/theme.css";
 
 export default function App() {
   return (
@@ -42,6 +44,7 @@ export default function App() {
       </AnimatePresence>
 
       <Footer />
+      <NominateNow />
     </>
   );
 }

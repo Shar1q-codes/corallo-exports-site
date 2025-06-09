@@ -9,8 +9,9 @@ import AboutPreview from "../components/homepage/AboutPreview";
 import ServicesPreview from "../components/homepage/ServicesPreview";
 import ProductHighlights from "../components/homepage/ProductHighlights";
 import WhyChooseUs from "../components/homepage/WhyChooseUs";
-import TestimonialsSection from "../components/home/TestimonialsSection";
-import CTASection from "../components/home/CTASection";
+import FAQsPreview from "../components/homepage/FAQsPreview";
+import ContactStrip from "../components/homepage/ContactStrip";
+import CTAStrip from "../components/homepage/CTAStrip";
 
 export default function Home() {
   return (
@@ -25,8 +26,9 @@ export default function Home() {
       <ServicesPreview />
       <ProductHighlights />
       <WhyChooseUs />
-      <TestimonialsSection />
-      <CTASection />
+      <FAQsPreview />
+      <ContactStrip />
+      <CTAStrip />
     </motion.main>
   );
 }
