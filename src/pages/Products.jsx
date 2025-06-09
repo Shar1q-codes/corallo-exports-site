@@ -1,13 +1,21 @@
-import React from "react";
+/**
+ * Products Page Component
+ * Comprehensive showcase of Corallo's product portfolio
+ */
+
 import { motion } from "framer-motion";
-import "../styles/pages/Products.css";
+import { ArrowRight, CheckCircle, Award, Globe, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
+import Button from "../components/Button";
+import FadeInView from "../components/FadeInView";
+import styles from "../styles/pages/Products.module.css";
 
 export default function Products() {
   const categories = [
     {
       title: "Petrochemicals",
       description: "High-quality fuel and petrochemical products meeting international standards",
-      image: "⛽",
+      icon: "⛽",
       details: [
         "EN590 Diesel Fuel (10ppm)",
         "Jet Fuel A1",
@@ -15,38 +23,27 @@ export default function Products() {
         "Heavy Fuel Oil",
         "Lubricating Oils"
       ],
-      specifications: "ISO 8217, EN590, ASTM D975"
+      specifications: "ISO 8217, EN590, ASTM D975",
+      image: "https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
     },
     {
-      title: "Aluminum Scrap & Ingots",
+      title: "Aluminum & Metals",
       description: "Premium quality aluminum materials for manufacturing sectors",
-      image: "🏭",
+      icon: "🏭",
       details: [
         "Aluminum Scrap 6063",
         "Aluminum Wire Scrap",
         "Re-melted Aluminum Ingots",
         "Primary Aluminum Ingots",
-        "Aluminum Sheets & Coils"
+        "Iron Ore Fines (Fe 62-65%)"
       ],
-      specifications: "ASTM B209, EN 573, JIS H4000"
-    },
-    {
-      title: "Iron & Iron Ore",
-      description: "Raw and processed iron products for steel manufacturing",
-      image: "⚒️",
-      details: [
-        "Iron Ore Fines (Fe 62-65%)",
-        "Iron Ore Pellets",
-        "Sponge Iron (DRI)",
-        "Cast Iron Scrap",
-        "Steel Billets"
-      ],
-      specifications: "ISO 3082, ASTM A48, JIS G5501"
+      specifications: "ASTM B209, EN 573, JIS H4000",
+      image: "https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
     },
     {
       title: "Textiles",
       description: "Fine fabrics and textile materials for global fashion industry",
-      image: "🧵",
+      icon: "🧵",
       details: [
         "Cotton Fabrics",
         "Polyester Blends",
@@ -54,12 +51,13 @@ export default function Products() {
         "Denim & Workwear",
         "Technical Textiles"
       ],
-      specifications: "OEKO-TEX, GOTS, ISO 12947"
+      specifications: "OEKO-TEX, GOTS, ISO 12947",
+      image: "https://images.pexels.com/photos/1148957/pexels-photo-1148957.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
     },
     {
-      title: "Leather",
+      title: "Leather Products",
       description: "Premium leather materials and products for luxury brands",
-      image: "🛄",
+      icon: "🛄",
       details: [
         "Finished Leather Hides",
         "Wet Blue Leather",
@@ -67,113 +65,119 @@ export default function Products() {
         "Exotic Leather",
         "Leather Accessories"
       ],
-      specifications: "ISO 2589, ASTM D2813, EN ISO 17075"
-    },
-    {
-      title: "Agricultural Products",
-      description: "Quality agricultural commodities and food products",
-      image: "🌾",
-      details: [
-        "Wheat & Grains",
-        "Rice Varieties",
-        "Pulses & Legumes",
-        "Spices & Seasonings",
-        "Processed Foods"
-      ],
-      specifications: "FDA, HACCP, ISO 22000"
-    },
+      specifications: "ISO 2589, ASTM D2813, EN ISO 17075",
+      image: "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+    }
+  ];
+
+  const highlights = [
+    { icon: <Globe size={20} />, label: "Global Sourcing" },
+    { icon: <CheckCircle size={20} />, label: "Quality Assured" },
+    { icon: <Award size={20} />, label: "Certified Standards" },
+    { icon: <Shield size={20} />, label: "Compliance Ready" }
   ];
 
   return (
-    <div className="products-page">
-      <motion.div 
-        className="products-hero"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="hero-content">
-          <h1>Our Products</h1>
-          <p>Premium materials sourced from trusted global suppliers</p>
-          <div className="hero-highlights">
-            <div className="highlight">
-              <span className="highlight-icon">🌍</span>
-              <span>Global Sourcing</span>
+    <motion.div 
+      className={styles.page}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroOverlay} />
+        <div className={styles.container}>
+          <FadeInView className={styles.heroContent}>
+            <h1>Premium Product Portfolio</h1>
+            <p>
+              Comprehensive range of high-quality materials sourced from trusted 
+              global suppliers, meeting the highest international standards.
+            </p>
+            
+            <div className={styles.highlights}>
+              {highlights.map((highlight, index) => (
+                <div key={index} className={styles.highlight}>
+                  {highlight.icon}
+                  <span>{highlight.label}</span>
+                </div>
+              ))}
             </div>
-            <div className="highlight">
-              <span className="highlight-icon">✅</span>
-              <span>Quality Assured</span>
-            </div>
-            <div className="highlight">
-              <span className="highlight-icon">📋</span>
-              <span>Certified Standards</span>
-            </div>
+          </FadeInView>
+        </div>
+      </section>
+
+      {/* Products Grid */}
+      <section className={styles.products}>
+        <div className={styles.container}>
+          <FadeInView className={styles.intro}>
+            <h2>Our Product Categories</h2>
+            <p>
+              Each product category is carefully curated to meet international 
+              standards and customer specifications across multiple industries.
+            </p>
+          </FadeInView>
+
+          <div className={styles.grid}>
+            {categories.map((category, index) => (
+              <FadeInView
+                key={index}
+                delay={0.1 * index}
+                className={styles.productCard}
+              >
+                <div className={styles.cardImage}>
+                  <img src={category.image} alt={category.title} loading="lazy" />
+                  <div className={styles.cardOverlay}>
+                    <span className={styles.cardIcon}>{category.icon}</span>
+                  </div>
+                </div>
+                
+                <div className={styles.cardContent}>
+                  <h3>{category.title}</h3>
+                  <p>{category.description}</p>
+                  
+                  <div className={styles.details}>
+                    <h4>Product Range:</h4>
+                    <ul>
+                      {category.details.map((detail, idx) => (
+                        <li key={idx}>{detail}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className={styles.specs}>
+                    <h4>Standards:</h4>
+                    <span className={styles.specsBadge}>{category.specifications}</span>
+                  </div>
+                </div>
+              </FadeInView>
+            ))}
           </div>
         </div>
-      </motion.div>
+      </section>
 
-      <div className="products-container">
-        <motion.div 
-          className="products-intro"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2>Comprehensive Product Portfolio</h2>
-          <p>We specialize in sourcing and trading high-quality materials across multiple industries. Each product category is carefully curated to meet international standards and customer specifications.</p>
-        </motion.div>
-
-        <div className="products-grid">
-          {categories.map((category, index) => (
-            <motion.div 
-              key={index} 
-              className="product-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
+      {/* CTA Section */}
+      <section className={styles.cta}>
+        <div className={styles.container}>
+          <FadeInView className={styles.ctaContent}>
+            <h2>Need a Specific Product?</h2>
+            <p>
+              Our global network can source virtually any material to meet your 
+              exact requirements. Contact our specialists for custom solutions.
+            </p>
+            <Button
+              as={Link}
+              to="/contact"
+              variant="primary"
+              size="large"
+              icon={<ArrowRight size={20} />}
             >
-              <div className="product-image">
-                <span className="product-icon">{category.image}</span>
-              </div>
-              <div className="product-content">
-                <h3>{category.title}</h3>
-                <p className="product-description">{category.description}</p>
-                
-                <div className="product-details">
-                  <h4>Product Range:</h4>
-                  <ul className="product-list">
-                    {category.details.map((detail, idx) => (
-                      <li key={idx}>{detail}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="product-specs">
-                  <h4>Standards:</h4>
-                  <span className="specs-badge">{category.specifications}</span>
-                </div>
-
-                <button className="learn-more">Request Quote</button>
-              </div>
-            </motion.div>
-          ))}
+              Contact Our Specialists
+            </Button>
+          </FadeInView>
         </div>
-
-        <motion.div 
-          className="products-cta"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2>Need a specific product not listed?</h2>
-          <p>Our global network can source virtually any material to meet your requirements.</p>
-          <a href="/contact" className="cta-button">Contact Our Specialists</a>
-        </motion.div>
-      </div>
-    </div>
+      </section>
+    </motion.div>
   );
 }
