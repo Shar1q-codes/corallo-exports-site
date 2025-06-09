@@ -10,6 +10,15 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   const year = new Date().getFullYear();
 
+  const handleFooterNavClick = () => {
+    // Scroll to top when footer links are clicked
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <footer className="footer">
       <div className="container footer-grid">
@@ -28,32 +37,32 @@ export default function Footer() {
           <h4>Quick Links</h4>
           <ul>
             <li>
-              <Link to="/">
+              <Link to="/" onClick={handleFooterNavClick}>
                 <i className="fas fa-home"></i>Home
               </Link>
             </li>
             <li>
-              <Link to="/about">
+              <Link to="/about" onClick={handleFooterNavClick}>
                 <i className="fas fa-info-circle"></i>About Us
               </Link>
             </li>
             <li>
-              <Link to="/services">
+              <Link to="/services" onClick={handleFooterNavClick}>
                 <i className="fas fa-cogs"></i>Services
               </Link>
             </li>
             <li>
-              <Link to="/products">
+              <Link to="/products" onClick={handleFooterNavClick}>
                 <i className="fas fa-box"></i>Products
               </Link>
             </li>
             <li>
-              <Link to="/contact">
+              <Link to="/contact" onClick={handleFooterNavClick}>
                 <i className="fas fa-envelope"></i>Contact
               </Link>
             </li>
             <li>
-              <Link to="/faqs">
+              <Link to="/faqs" onClick={handleFooterNavClick}>
                 <i className="fas fa-question-circle"></i>FAQs
               </Link>
             </li>

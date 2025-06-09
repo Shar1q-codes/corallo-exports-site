@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import Navigation from "./components/common/Navigation";
 import Footer from "./components/common/Footer";
 import NominateNow from "./components/common/NominateNow";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 // 🎨 Global Styles
 import "./styles/theme.css";
@@ -25,6 +26,7 @@ import "./styles/theme.css";
 export default function App() {
   return (
     <>
+      <ScrollToTop />
       <Navigation />
 
       <Routes>

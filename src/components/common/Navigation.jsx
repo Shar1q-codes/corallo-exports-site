@@ -10,18 +10,37 @@ import "../../styles/components/common/Navigation.css";
 export default function Navigation() {
   const { pathname } = useLocation();
 
+  const handleNavClick = () => {
+    // Additional scroll to top for immediate feedback
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <nav className="nav-bar">
       <div className="container nav-inner">
-        <h2 className="nav-brand">Corallo Exports</h2>
+        <Link to="/" onClick={handleNavClick}>
+          <h2 className="nav-brand">Corallo Exports</h2>
+        </Link>
         <ul className="nav-links">
           <li>
-            <Link to="/" className={pathname === "/" ? "active" : ""}>
+            <Link 
+              to="/" 
+              className={pathname === "/" ? "active" : ""}
+              onClick={handleNavClick}
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about" className={pathname === "/about" ? "active" : ""}>
+            <Link 
+              to="/about" 
+              className={pathname === "/about" ? "active" : ""}
+              onClick={handleNavClick}
+            >
               About
             </Link>
           </li>
@@ -29,6 +48,7 @@ export default function Navigation() {
             <Link
               to="/services"
               className={pathname === "/services" ? "active" : ""}
+              onClick={handleNavClick}
             >
               Services
             </Link>
@@ -37,12 +57,17 @@ export default function Navigation() {
             <Link
               to="/products"
               className={pathname === "/products" ? "active" : ""}
+              onClick={handleNavClick}
             >
               Products
             </Link>
           </li>
           <li>
-            <Link to="/faqs" className={pathname === "/faqs" ? "active" : ""}>
+            <Link 
+              to="/faqs" 
+              className={pathname === "/faqs" ? "active" : ""}
+              onClick={handleNavClick}
+            >
               FAQs
             </Link>
           </li>
@@ -50,6 +75,7 @@ export default function Navigation() {
             <Link
               to="/contact"
               className={pathname === "/contact" ? "active" : ""}
+              onClick={handleNavClick}
             >
               Contact
             </Link>

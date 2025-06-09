@@ -31,6 +31,17 @@
   font-weight: 700;
   color: var(--text-on-dark);
   letter-spacing: -0.5px;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.nav-brand:hover {
+  color: var(--accent-color);
+}
+
+/* Make brand clickable */
+.nav-inner > a {
+  text-decoration: none;
 }
 
 .nav-links {
@@ -58,6 +69,7 @@
   opacity: 1;
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-1px);
+  color: var(--text-on-dark);
 }
 
 .nav-links a.active {
