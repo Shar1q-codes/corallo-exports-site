@@ -17,7 +17,7 @@ import {
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import FadeInView from "../components/FadeInView";
-import styles from "../styles/Services.module.css";
+import "../styles/pages/Services.css";
 
 export default function Services() {
   const services = [
@@ -124,44 +124,44 @@ export default function Services() {
 
   return (
     <motion.main
-      className={styles.page}
+      className="page"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
       {/* Hero Section */}
-      <section className={styles.hero}>
-        <div className={styles.heroOverlay} />
-        <div className={styles.container}>
-          <FadeInView className={styles.heroContent}>
+      <section className="hero">
+        <div className="heroOverlay" />
+        <div className="container">
+          <FadeInView className="heroContent">
             <h1>Our Services</h1>
             <p>
               Comprehensive trade solutions designed to streamline your global 
               business operations and maximize your success in international markets.
             </p>
-            <div className={styles.heroStats}>
-              <div className={styles.heroStat}>
-                <span className={styles.statNumber}>500+</span>
-                <span className={styles.statLabel}>Global Partners</span>
+            <div className="heroStats">
+              <div className="heroStat">
+                <span className="statNumber">500+</span>
+                <span className="statLabel">Global Partners</span>
               </div>
-              <div className={styles.heroStat}>
-                <span className={styles.statNumber}>50+</span>
-                <span className={styles.statLabel}>Countries</span>
+              <div className="heroStat">
+                <span className="statNumber">50+</span>
+                <span className="statLabel">Countries</span>
               </div>
-              <div className={styles.heroStat}>
-                <span className={styles.statNumber}>99%</span>
-                <span className={styles.statLabel}>Success Rate</span>
+              <div className="heroStat">
+                <span className="statNumber">99%</span>
+                <span className="statLabel">Success Rate</span>
               </div>
             </div>
           </FadeInView>
         </div>
       </section>
 
-      <div className={styles.container}>
+      <div className="container">
         {/* Services Grid */}
-        <section className={styles.section}>
-          <FadeInView className={styles.sectionHeader}>
+        <section className="section">
+          <FadeInView className="sectionHeader">
             <h2>Comprehensive Trade Solutions</h2>
             <p>
               From sourcing to delivery, we provide end-to-end support for your 
@@ -169,19 +169,19 @@ export default function Services() {
             </p>
           </FadeInView>
           
-          <div className={styles.servicesGrid}>
+          <div className="servicesGrid">
             {services.map((service, index) => (
               <FadeInView
                 key={index}
                 delay={0.1 * index}
-                className={styles.serviceCard}
+                className="serviceCard"
               >
-                <div className={styles.serviceIcon}>
+                <div className="serviceIcon">
                   {service.icon}
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <ul className={styles.featureList}>
+                <ul className="featureList">
                   {service.features.map((feature, idx) => (
                     <li key={idx}>
                       <CheckCircle size={16} />
@@ -195,8 +195,8 @@ export default function Services() {
         </section>
 
         {/* Process Section */}
-        <section className={styles.section}>
-          <FadeInView className={styles.sectionHeader}>
+        <section className="section">
+          <FadeInView className="sectionHeader">
             <h2>Our Process</h2>
             <p>
               A streamlined approach to international trade that ensures 
@@ -204,14 +204,14 @@ export default function Services() {
             </p>
           </FadeInView>
           
-          <div className={styles.processGrid}>
+          <div className="processGrid">
             {process.map((step, index) => (
               <FadeInView
                 key={index}
                 delay={0.1 * index}
-                className={styles.processStep}
+                className="processStep"
               >
-                <div className={styles.stepNumber}>{step.step}</div>
+                <div className="stepNumber">{step.step}</div>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
               </FadeInView>
@@ -220,8 +220,8 @@ export default function Services() {
         </section>
 
         {/* CTA Section */}
-        <section className={styles.ctaSection}>
-          <FadeInView className={styles.ctaContent}>
+        <section className="ctaSection">
+          <FadeInView className="ctaContent">
             <h2>Ready to Streamline Your Global Trade?</h2>
             <p>
               Let our experts handle the complexities while you focus on 
