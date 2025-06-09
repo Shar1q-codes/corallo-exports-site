@@ -17,6 +17,7 @@ import NotFound from "./pages/NotFound";
 // 🧱 Layout
 import Navigation from "./components/common/Navigation";
 import Footer from "./components/common/Footer";
+import NominateNow from "./components/common/NominateNow";
 
 // 🎨 Global Styles
 import "./styles/theme.css";
@@ -37,6 +38,7 @@ export default function App() {
       </Routes>
 
       <Footer />
+      <NominateNow />
     </>
   );
 }
