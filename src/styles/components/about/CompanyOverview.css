@@ -1,14 +1,107 @@
-.about-block {
-  margin-bottom: 3rem;
+/* ===============================
+   🎨 Company Overview - Enhanced Premium Design
+   =============================== */
+
+.overview-split .overview-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.about-block h2 {
+.company-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 100px;
+}
+
+.stat-number {
   font-size: 2rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  font-family: var(--font-header);
+  line-height: 1;
 }
 
-.about-block p {
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.25rem;
+}
+
+.overview-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(44, 62, 80, 0.9) 0%,
+    rgba(44, 62, 80, 0.7) 50%,
+    transparent 100%
+  );
+  padding: 2rem;
+  color: var(--text-on-dark);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.overview-image:hover .image-overlay {
+  transform: translateY(0);
+}
+
+.overlay-text h3 {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-header);
+}
+
+.overlay-text p {
+  color: var(--text-on-dark);
+  margin: 0;
   font-size: 1rem;
-  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .company-stats {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .image-overlay {
+    position: static;
+    transform: none;
+    background: rgba(44, 62, 80, 0.1);
+    margin-top: 1rem;
+    border-radius: var(--radius);
+  }
+
+  .overlay-text h3 {
+    color: var(--primary-color);
+  }
+
+  .overlay-text p {
+    color: var(--text-secondary);
+  }
 }
