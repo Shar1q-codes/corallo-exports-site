@@ -16,9 +16,9 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 // 🧱 Layout Components
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop";
+import Navigation from "./components/common/Navigation";
+import Footer from "./components/common/Footer";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 // 🎨 Global Styles
 import "./styles/global.css";
