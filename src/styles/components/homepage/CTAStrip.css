@@ -1,51 +1,166 @@
 /* ===============================
-   🎨 Styles: CTA Strip
+   🎨 Premium CTA Strip Styles
    =============================== */
 
 .cta-strip {
-  background-color: var(--secondary-color); /* Deep navy */
-  color: #ffffff;
-  padding: 3rem 1rem;
+  background: var(--gradient-secondary);
+  color: var(--text-inverse);
+  padding: var(--space-3xl) 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-strip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.9) 0%, 
+    rgba(30, 41, 59, 0.8) 50%, 
+    rgba(64, 22, 12, 0.9) 100%
+  );
+  z-index: 1;
+}
+
+.cta-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(235, 122, 71, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(217, 119, 6, 0.1) 0%, transparent 50%);
+  animation: float 15s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
 }
 
 .cta-inner {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-xl);
   align-items: center;
   justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
 }
 
 .cta-strip h2 {
   font-family: var(--font-header);
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-300) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* 🔘 Premium CTA Button */
 .cta-button {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  color: #ffffff;
-  background-color: var(--accent-color);
-  border-radius: var(--radius);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-2xl);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-inverse);
+  background: var(--gradient-warm);
+  border-radius: var(--radius-lg);
   text-decoration: none;
-  transition: background 0.3s ease;
-  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-lg);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+  left: 100%;
 }
 
 .cta-button:hover {
-  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--accent-500) 100%);
+}
+
+.cta-button:active {
+  transform: translateY(-1px);
+}
+
+.cta-button::after {
+  content: '→';
+  margin-left: var(--space-sm);
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover::after {
+  transform: translateX(4px);
 }
 
 /* ===============================
-   📱 Responsive Enhancements
+   📱 Responsive Design
    =============================== */
+
+@media (max-width: 768px) {
+  .cta-strip {
+    padding: var(--space-2xl) 0;
+  }
+
+  .cta-inner {
+    padding: 0 var(--space-md);
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+}
 
 @media (max-width: 480px) {
   .cta-button {
-    width: 100%;
-    max-width: 300px;
+    padding: var(--space-md) var(--space-xl);
+    font-size: 1rem;
+  }
+}
+
+/* 🎭 Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .cta-strip::after {
+    animation: none;
+  }
+  
+  .cta-button::before {
+    transition: none;
   }
 }

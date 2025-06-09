@@ -1,87 +1,200 @@
 /* ===============================
-   🎨 Styles: Why Choose Us Section
+   🎨 Premium Why Choose Us Section
    =============================== */
 
 .why-choose-us {
-  background-color: var(--background-color);
-  padding: 5rem 1.5rem;
+  background: var(--background-secondary);
+  padding: var(--space-3xl) 0;
+  position: relative;
+}
+
+.why-choose-us::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--secondary-50) 0%, var(--neutral-100) 100%);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.why-choose-us .container {
+  position: relative;
+  z-index: 2;
 }
 
 .why-choose-us .section-title {
   text-align: center;
   font-family: var(--font-header);
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  color: var(--accent-color);
-  margin-bottom: 3rem;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3xl);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  background: var(--gradient-cool);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* 🧱 Grid Layout */
+/* 🧱 Premium Grid Layout */
 .why-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  margin: 2rem auto;
-  max-width: 1200px;
-  padding: 1rem;
-  align-items: flex-start;
-}
-
-.why-card {
-  min-height: 340px;
-  max-width: 350px;
+  gap: var(--space-2xl);
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  max-width: 1200px;
+  align-items: stretch;
 }
 
-/* 🧩 Card */
+/* 🧩 Premium Cards */
 .why-card {
-  background-color: var(--card-bg);
-  padding: 2rem;
-  border-radius: var(--radius);
+  background: var(--surface-color);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-cool);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.why-card:hover::before {
+  transform: scaleX(1);
 }
 
 .why-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-200);
 }
 
+/* 🎯 Premium Icons */
 .why-icon {
-  color: var(--accent-color);
-  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: var(--gradient-cool);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-lg);
+  color: var(--text-inverse);
+  transition: all 0.3s ease;
+}
+
+.why-card:hover .why-icon {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: var(--shadow-md);
 }
 
 .why-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: var(--primary-color);
+  font-family: var(--font-header);
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 .why-card p {
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--text-secondary);
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* 🌟 Enhanced Background Effects */
+.why-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--secondary-50) 0%, var(--neutral-100) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.why-card:hover::after {
+  opacity: 0.5;
 }
 
 /* ===============================
-   📱 Responsive Enhancements
+   📱 Responsive Design
    =============================== */
 
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
+  .why-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .why-choose-us {
+    padding: var(--space-2xl) 0;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
   .why-card {
-    padding: 1.5rem;
+    padding: var(--space-xl);
+  }
+
+  .why-icon {
+    width: 56px;
+    height: 56px;
   }
 
   .why-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
 
   .why-card p {
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-card {
+    padding: var(--space-lg);
+  }
+
+  .why-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .why-card h3 {
+    font-size: 1.125rem;
   }
 }
