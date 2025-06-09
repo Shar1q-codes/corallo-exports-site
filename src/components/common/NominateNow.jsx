@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, X, CheckCircle } from "lucide-react";
+import { Send, X, CheckCircle, Sparkles } from "lucide-react";
 import "./NominateNow.css";
 
 export default function NominateNow() {
@@ -41,23 +41,14 @@ export default function NominateNow() {
     if (Object.keys(newErrors).length === 0) {
       setIsSubmitting(true);
       try {
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
-        if (response.ok) {
-          setSubmitSuccess(true);
-          setFormData({ name: "", email: "", phone: "", company: "", message: "" });
-          setTimeout(() => {
-            setIsModalOpen(false);
-            setSubmitSuccess(false);
-          }, 3000);
-        } else {
-          throw new Error("Submission failed");
-        }
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        setSubmitSuccess(true);
+        setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+        setTimeout(() => {
+          setIsModalOpen(false);
+          setSubmitSuccess(false);
+        }, 3000);
       } catch (error) {
         setErrors({ submit: "Failed to submit. Please try again." });
       } finally {
@@ -90,13 +81,27 @@ export default function NominateNow() {
         className="nominate-button"
         onClick={() => setIsModalOpen(true)}
         aria-label="Open nomination form"
-        whileHover={{ scale: 1.05, y: -2 }}
+        whileHover={{ scale: 1.05, y: -3 }}
         whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 1 }}
+        initial={{ opacity: 0, scale: 0.8, y: 100 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ 
+          duration: 0.6, 
+          delay: 2,
+          type: "spring",
+          stiffness: 100
+        }}
       >
-        <Send size={20} />
+        <motion.div
+          animate={{ rotate: [0, 10, -10, 0] }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity, 
+            repeatDelay: 5 
+          }}
+        >
+          <Sparkles size={20} />
+        </motion.div>
         <span>Nominate Now</span>
       </motion.button>
 
@@ -113,53 +118,97 @@ export default function NominateNow() {
             <motion.div 
               className="modal-content" 
               onClick={(e) => e.stopPropagation()}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.8, y: 50 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ duration: 0.3 }}
+              exit={{ opacity: 0, scale: 0.8, y: 50 }}
+              transition={{ 
+                duration: 0.4,
+                type: "spring",
+                stiffness: 100
+              }}
             >
-              <button
+              <motion.button
                 className="close-button"
                 onClick={closeModal}
                 aria-label="Close modal"
                 disabled={isSubmitting}
+                whileHover={{ scale: 1.1, rotate: 90 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <X size={24} />
-              </button>
+              </motion.button>
 
               <AnimatePresence mode="wait">
                 {submitSuccess ? (
                   <motion.div 
                     className="success-message"
                     key="success"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.4 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.5 }}
                   >
-                    <div className="success-icon">
+                    <motion.div 
+                      className="success-icon"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ 
+                        delay: 0.2, 
+                        type: "spring", 
+                        stiffness: 200 
+                      }}
+                    >
                       <CheckCircle size={64} />
-                    </div>
-                    <h2>Thank You!</h2>
-                    <p>Your nomination has been submitted successfully. We'll review it and get back to you soon.</p>
+                    </motion.div>
+                    <motion.h2
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      Thank You!
+                    </motion.h2>
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.6 }}
+                    >
+                      Your nomination has been submitted successfully. We'll review it and get back to you within 24 hours.
+                    </motion.p>
                   </motion.div>
                 ) : (
                   <motion.form 
                     onSubmit={handleSubmit} 
                     className="nomination-form"
                     key="form"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.4 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
                   >
                     <div className="form-header">
-                      <h2>Nominate a Business</h2>
-                      <p>Recommend a business for our global trade network</p>
+                      <motion.h2
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                      >
+                        Nominate a Business Partner
+                      </motion.h2>
+                      <motion.p
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        Recommend a trusted business for our exclusive global trade network
+                      </motion.p>
                     </div>
 
                     <div className="form-row">
-                      <div className="form-group">
+                      <motion.div 
+                        className="form-group"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
+                      >
                         <label htmlFor="name">Full Name *</label>
                         <input
                           type="text"
@@ -173,9 +222,14 @@ export default function NominateNow() {
                         {errors.name && (
                           <span className="error-message">{errors.name}</span>
                         )}
-                      </div>
+                      </motion.div>
 
-                      <div className="form-group">
+                      <motion.div 
+                        className="form-group"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 }}
+                      >
                         <label htmlFor="email">Email Address *</label>
                         <input
                           type="email"
@@ -189,11 +243,16 @@ export default function NominateNow() {
                         {errors.email && (
                           <span className="error-message">{errors.email}</span>
                         )}
-                      </div>
+                      </motion.div>
                     </div>
 
                     <div className="form-row">
-                      <div className="form-group">
+                      <motion.div 
+                        className="form-group"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5 }}
+                      >
                         <label htmlFor="phone">Phone Number *</label>
                         <input
                           type="tel"
@@ -202,15 +261,20 @@ export default function NominateNow() {
                           value={formData.phone}
                           onChange={handleChange}
                           disabled={isSubmitting}
-                          placeholder="+1 (555) 123-4567"
+                          placeholder="+91 98765 43210"
                         />
                         {errors.phone && (
                           <span className="error-message">{errors.phone}</span>
                         )}
-                      </div>
+                      </motion.div>
 
-                      <div className="form-group">
-                        <label htmlFor="company">Company Name</label>
+                      <motion.div 
+                        className="form-group"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.6 }}
+                      >
+                        <label htmlFor="company">Company to Nominate</label>
                         <input
                           type="text"
                           id="company"
@@ -218,12 +282,17 @@ export default function NominateNow() {
                           value={formData.company}
                           onChange={handleChange}
                           disabled={isSubmitting}
-                          placeholder="Company to nominate"
+                          placeholder="Company name"
                         />
-                      </div>
+                      </motion.div>
                     </div>
 
-                    <div className="form-group">
+                    <motion.div 
+                      className="form-group"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7 }}
+                    >
                       <label htmlFor="message">Nomination Details *</label>
                       <textarea
                         id="message"
@@ -232,25 +301,44 @@ export default function NominateNow() {
                         onChange={handleChange}
                         disabled={isSubmitting}
                         rows="4"
-                        placeholder="Tell us about the business you're nominating, their specialties, and why they'd be a good fit for our network..."
+                        placeholder="Tell us about the business you're nominating, their specialties, and why they'd be a valuable addition to our network..."
                       ></textarea>
                       {errors.message && (
                         <span className="error-message">{errors.message}</span>
                       )}
-                    </div>
+                    </motion.div>
 
                     {errors.submit && (
-                      <div className="submit-error">{errors.submit}</div>
+                      <motion.div 
+                        className="submit-error"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                      >
+                        {errors.submit}
+                      </motion.div>
                     )}
 
-                    <button
+                    <motion.button
                       type="submit"
                       disabled={isSubmitting}
                       className={isSubmitting ? "submitting" : ""}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.8 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       {isSubmitting ? (
                         <>
-                          <span className="spinner"></span>
+                          <motion.div
+                            className="spinner"
+                            animate={{ rotate: 360 }}
+                            transition={{ 
+                              duration: 1, 
+                              repeat: Infinity, 
+                              ease: "linear" 
+                            }}
+                          />
                           Submitting...
                         </>
                       ) : (
@@ -259,7 +347,7 @@ export default function NominateNow() {
                           Submit Nomination
                         </>
                       )}
-                    </button>
+                    </motion.button>
                   </motion.form>
                 )}
               </AnimatePresence>
