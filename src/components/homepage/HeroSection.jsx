@@ -4,14 +4,13 @@
 // 🎯 Purpose: Homepage hero banner
 // ===============================
 
+import { Link } from "react-router-dom";
 import "../../styles/components/homepage/HeroSection.css";
-import heroBg from "../../assets/home/hero-background.png";
 
 export default function HeroSection() {
   return (
     <section
       className="hero"
-      style={{ background: `url(${heroBg}) center/cover no-repeat` }}
       role="banner"
       aria-label="Corallo Global Trade Hero Section"
     >
@@ -25,9 +24,13 @@ export default function HeroSection() {
           Efficient Trade Brokerage · Verified Suppliers · Transparent
           Deal-Making
         </p>
-        <button className="hero-btn" aria-label="Get in touch with Corallo">
+        <Link 
+          to="/contact" 
+          className="hero-btn" 
+          aria-label="Get in touch with Corallo"
+        >
           Get in Touch
-        </button>
+        </Link>
       </div>
     </section>
   );

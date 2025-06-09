@@ -3,49 +3,116 @@
    =============================== */
 
 .cta-strip {
-  background-color: var(--secondary-color); /* Deep navy */
-  color: #ffffff;
-  padding: 3rem 1rem;
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #1a202c 100%);
+  color: white;
+  padding: var(--space-4xl) 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-strip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(214, 158, 46, 0.1) 0%, transparent 50%);
 }
 
 .cta-inner {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-2xl);
   align-items: center;
   justify-content: center;
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  position: relative;
+  z-index: 1;
 }
 
 .cta-strip h2 {
   font-family: var(--font-header);
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
   margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.02em;
+  max-width: 800px;
 }
 
 .cta-button {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  color: #ffffff;
-  background-color: var(--accent-color);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-2xl);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
   border-radius: var(--radius);
   text-decoration: none;
-  transition: background 0.3s ease;
-  box-shadow: var(--shadow);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(214, 158, 46, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: var(--primary-hover);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 48px rgba(214, 158, 46, 0.4);
+}
+
+.cta-button:hover::before {
+  opacity: 1;
+}
+
+.cta-button::after {
+  content: '→';
+  margin-left: var(--space-sm);
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover::after {
+  transform: translateX(4px);
 }
 
 /* ===============================
    📱 Responsive Enhancements
    =============================== */
 
+@media (max-width: 768px) {
+  .cta-strip {
+    padding: var(--space-3xl) 0;
+  }
+
+  .cta-inner {
+    gap: var(--space-xl);
+  }
+}
+
 @media (max-width: 480px) {
+  .cta-strip {
+    padding: var(--space-2xl) 0;
+  }
+
   .cta-button {
     width: 100%;
     max-width: 300px;
+    justify-content: center;
+    padding: var(--space-md) var(--space-xl);
+    font-size: 1rem;
   }
 }
