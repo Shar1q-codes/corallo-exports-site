@@ -1,97 +1,128 @@
 /* ===============================
-   🎨 Styles: Product Highlights Section
+   🎨 Styles: Product Highlights Section - Premium Design
    =============================== */
 
 .product-highlights {
-  background-color: var(--background-color);
-  padding: 5rem 1.5rem;
+  background: var(--background-secondary);
+  padding: 6rem 2rem;
 }
 
 .product-container {
   max-width: 1200px;
-  margin: 2rem auto;
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  box-sizing: border-box; /* ✅ Prevents layout overflow */
-  align-items: flex-start;
-}
-
-.product-card {
-  min-height: 340px;
-  max-width: 350px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 
 .section-title {
   text-align: center;
   font-family: var(--font-header);
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  color: var(--accent-color);
-  margin-bottom: 3rem;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: var(--primary-color);
+  margin-bottom: 3.5rem;
+  font-weight: 700;
 }
 
-/* 📋 Product List Styling */
+/* 📋 Premium Product List */
 .product-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .product-item {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
-  background-color: var(--card-bg);
-  padding: 1.75rem 1.5rem;
-  border-radius: var(--radius);
+  gap: 2rem;
+  background: var(--card-bg);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-large);
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gradient-primary);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
 }
 
 .product-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-large);
+  border-color: var(--primary-color);
 }
 
-/* 🧩 Emoji Icon */
+.product-item:hover::before {
+  transform: scaleY(1);
+}
+
+/* 🧩 Premium Emoji Icon */
 .emoji {
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: 1;
   flex-shrink: 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* 📝 Text Block */
+/* 📝 Premium Text Block */
 .product-text h3 {
-  font-size: 1.2rem;
-  margin: 0 0 0.4rem;
-  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin: 0 0 0.75rem;
+  color: var(--text-primary);
+  font-family: var(--font-header);
+  font-weight: 600;
 }
 
 .product-text p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--text-color);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 /* ===============================
    📱 Responsive Enhancements
    =============================== */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .product-highlights {
+    padding: 4rem 1rem;
+  }
+
   .product-item {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
   }
 
   .emoji {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    padding: 0.75rem;
+  }
+
+  .product-text h3 {
+    font-size: 1.25rem;
+  }
+
+  .product-text p {
+    font-size: 1rem;
   }
 }

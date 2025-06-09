@@ -1,36 +1,76 @@
 /* ===============================
-   🎨 Global Theme Configuration
+   🎨 Global Theme Configuration - Premium Industrial Luxury
    =============================== */
 
 :root {
-  /* 🔶 Brand Colors */
-  --primary-color: #7b3411; /* Industrial ship rust (main brand color) */
-  --primary-hover: #652a0e; /* Rust hover variant */
-  --secondary-color: #1b1f3b; /* Deep navy for backgrounds, accents */
-  --accent-color: #b87333; /* Copper highlight for borders/buttons */
-  --background-color: #f4f4f4; /* Light industrial background (updated) */
-  --card-bg: #ffffff; /* Section or card background for contrast */
-  --text-color: #333333; /* Neutral dark text color */
-
+  /* 🔶 Premium Brand Colors */
+  --primary-color: #8B4513; /* Rich saddle brown - sophisticated rust */
+  --primary-hover: #A0522D; /* Sienna hover - warmer interaction */
+  --primary-rgb: 139, 69, 19; /* RGB values for transparency effects */
+  
+  --secondary-color: #2C3E50; /* Sophisticated dark blue-gray */
+  --secondary-light: #34495E; /* Lighter variant for subtle backgrounds */
+  
+  --accent-color: #D4AF37; /* Elegant gold accent */
+  --accent-hover: #B8860B; /* Darker gold for interactions */
+  
+  /* 🎨 Background & Surface Colors */
+  --background-color: #FAFAFA; /* Pure light background */
+  --background-secondary: #F5F5F5; /* Subtle gray for sections */
+  --card-bg: #FFFFFF; /* Clean white for cards */
+  --surface-elevated: #FFFFFF; /* Elevated surfaces */
+  
+  /* 📝 Text Colors */
+  --text-primary: #2C3E50; /* Dark blue-gray for primary text */
+  --text-secondary: #5D6D7E; /* Medium gray for secondary text */
+  --text-muted: #85929E; /* Light gray for muted text */
+  --text-on-dark: #FFFFFF; /* White text for dark backgrounds */
+  --text-on-primary: #FFFFFF; /* White text on primary color */
+  
+  /* 🔲 Border & Divider Colors */
+  --border-light: #E8E8E8; /* Light borders */
+  --border-medium: #D5DBDB; /* Medium borders */
+  --border-dark: #AEB6BF; /* Darker borders */
+  
+  /* 🎯 Status Colors */
+  --success-color: #27AE60; /* Success green */
+  --warning-color: #F39C12; /* Warning orange */
+  --error-color: #E74C3C; /* Error red */
+  --info-color: #3498DB; /* Info blue */
+  
   /* 🔤 Typography */
-  --font-header: "Lato", sans-serif; /* Elegant, modern header font */
-  --font-body: "Inter", sans-serif; /* Highly readable body text font */
-
+  --font-header: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-body: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  
   /* 🧱 UI Constants */
-  --radius: 12px; /* Default border radius */
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft universal shadow */
+  --radius: 12px;
+  --radius-small: 8px;
+  --radius-large: 16px;
+  --shadow: 0 4px 16px rgba(44, 62, 80, 0.08);
+  --shadow-hover: 0 8px 24px rgba(44, 62, 80, 0.12);
+  --shadow-large: 0 12px 32px rgba(44, 62, 80, 0.15);
+  
+  /* 🎭 Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
 }
 
 /* ===============================
    🖥️ Base Reset & Typography
    =============================== */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: var(--font-body);
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-primary);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -40,4 +80,40 @@ html,
 body {
   max-width: 100%;
   overflow-x: hidden;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+}
+
+p {
+  color: var(--text-secondary);
+  margin: 0 0 1rem 0;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
 }

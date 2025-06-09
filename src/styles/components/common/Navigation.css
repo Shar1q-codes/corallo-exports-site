@@ -1,59 +1,101 @@
 /* ===============================
-   🎨 Styles: Navigation Bar
+   🎨 Styles: Navigation Bar - Premium Design
    =============================== */
 
 .nav-bar {
-  background-color: var(--primary-color);
-  color: #ffffff;
-  padding: 1rem 1.5rem;
+  background: var(--gradient-secondary);
+  color: var(--text-on-dark);
+  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .nav-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .nav-brand {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-family: var(--font-header);
+  font-weight: 700;
+  color: var(--text-on-dark);
+  letter-spacing: -0.5px;
 }
 
 .nav-links {
   display: flex;
-  gap: 1.25rem;
+  gap: 2rem;
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .nav-links a {
-  color: #ffffff;
+  color: var(--text-on-dark);
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
-  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-small);
+  transition: all 0.3s ease;
+  position: relative;
+  opacity: 0.9;
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
 .nav-links a.active {
   color: var(--accent-color);
+  background: rgba(212, 175, 55, 0.15);
+  opacity: 1;
 }
 
-/* 📱 Mobile Stacking */
-@media (max-width: 600px) {
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 50%;
+}
+
+/* 📱 Mobile Navigation */
+@media (max-width: 768px) {
   .nav-inner {
     flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .nav-brand {
+    font-size: 1.5rem;
   }
 
   .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
   }
 }

@@ -1,24 +1,36 @@
 /* ===============================
-   🎨 Styles: About Preview Section
+   🎨 Styles: About Preview Section - Premium Design
    =============================== */
 
 .about-preview {
-  padding: 5rem 1.5rem;
-  background-color: var(--background-color); /* light industrial backdrop */
+  padding: 6rem 2rem;
+  background: var(--background-secondary);
 }
 
 .about-container {
-  background-color: var(--card-bg); /* white card container */
-  padding: 3rem 2rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: var(--card-bg);
+  padding: 4rem 3rem;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-large);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 4rem;
   max-width: 1200px;
   margin: 0 auto;
   flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-accent);
 }
 
 /* 🔹 Left Image */
@@ -30,8 +42,13 @@
 .about-image img {
   width: 100%;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-hover);
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.02);
 }
 
 /* 🔹 Right Content */
@@ -41,65 +58,87 @@
 }
 
 .section-title {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-size: clamp(2rem, 5vw, 2.8rem);
   font-family: var(--font-header);
-  color: var(--accent-color);
-  margin-bottom: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .about-text {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
 }
 
 .about-values {
   list-style: none;
   padding-left: 0;
-  margin: 0 0 2rem;
+  margin: 0 0 2.5rem;
 }
 
 .about-values li {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
   position: relative;
-  padding-left: 1.2rem;
+  padding-left: 2rem;
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
-/* Stylized Bullet */
 .about-values li::before {
-  content: "•";
-  color: var(--primary-color);
+  content: "✓";
   position: absolute;
   left: 0;
+  color: var(--accent-color);
+  font-weight: 700;
   font-size: 1.2rem;
-  line-height: 1;
 }
 
-/* CTA Link */
+/* Premium CTA Link */
 .about-cta {
-  display: inline-block;
-  background-color: var(--primary-color);
-  color: white;
-  padding: 0.6rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gradient-primary);
+  color: var(--text-on-primary);
+  padding: 1rem 2rem;
   border-radius: var(--radius);
-  font-size: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: var(--shadow);
 }
 
 .about-cta:hover {
-  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  color: var(--text-on-primary);
 }
 
 /* ===============================
    📱 Responsive Adjustments
    =============================== */
+@media (max-width: 1024px) {
+  .about-container {
+    gap: 3rem;
+    padding: 3rem 2rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .about-preview {
+    padding: 4rem 1rem;
+  }
+
   .about-container {
     flex-direction: column;
     text-align: center;
+    padding: 2.5rem 1.5rem;
+    gap: 2.5rem;
   }
 
   .about-cta {

@@ -1,51 +1,93 @@
 /* ===============================
-   🎨 Styles: CTA Strip
+   🎨 Styles: CTA Strip - Premium Design
    =============================== */
 
 .cta-strip {
-  background-color: var(--secondary-color); /* Deep navy */
-  color: #ffffff;
-  padding: 3rem 1rem;
+  background: var(--gradient-secondary);
+  color: var(--text-on-dark);
+  padding: 4rem 2rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-strip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(212, 175, 55, 0.1) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 .cta-inner {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-strip h2 {
   font-family: var(--font-header);
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin: 0;
+  color: var(--text-on-dark);
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .cta-button {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  color: #ffffff;
-  background-color: var(--accent-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--gradient-accent);
   border-radius: var(--radius);
   text-decoration: none;
-  transition: background 0.3s ease;
-  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-hover);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .cta-button:hover {
-  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-large);
+  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent-color) 100%);
+}
+
+.cta-button:active {
+  transform: translateY(-1px);
 }
 
 /* ===============================
    📱 Responsive Enhancements
    =============================== */
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .cta-strip {
+    padding: 3rem 1rem;
+  }
+
   .cta-button {
     width: 100%;
     max-width: 300px;
+    justify-content: center;
   }
 }
