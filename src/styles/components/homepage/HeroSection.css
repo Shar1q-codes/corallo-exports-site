@@ -42,9 +42,9 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(15, 23, 42, 0.8) 0%,
-    rgba(30, 41, 59, 0.6) 50%,
-    rgba(64, 22, 12, 0.7) 100%
+    rgba(15, 23, 42, 0.85) 0%,
+    rgba(30, 41, 59, 0.75) 50%,
+    rgba(64, 22, 12, 0.8) 100%
   );
   backdrop-filter: var(--backdrop-blur);
   -webkit-backdrop-filter: var(--backdrop-blur);
@@ -79,31 +79,30 @@
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 1.1;
   margin-bottom: var(--space-lg);
-  background: linear-gradient(135deg, #ffffff 0%, var(--accent-300) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
   letter-spacing: -0.02em;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .hero-tagline {
   font-size: clamp(1.25rem, 3vw, 2rem);
   font-weight: 600;
   margin: var(--space-lg) 0;
-  color: var(--accent-200);
+  color: #ffffff;
   letter-spacing: -0.01em;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero-sub {
   font-size: clamp(1rem, 2.5vw, 1.375rem);
-  opacity: 0.9;
+  opacity: 0.95;
   margin: var(--space-lg) 0 var(--space-2xl);
-  color: var(--neutral-200);
+  color: #ffffff;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* 🔘 Premium CTA Button */
