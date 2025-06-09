@@ -6,8 +6,10 @@
   background: var(--gradient-secondary);
   color: var(--text-on-dark);
   padding: 1rem 0;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
@@ -76,6 +78,11 @@
   border-radius: 50%;
 }
 
+/* Add padding to body to account for fixed navbar */
+body {
+  padding-top: 80px;
+}
+
 /* 📱 Mobile Navigation */
 @media (max-width: 768px) {
   .nav-inner {
@@ -97,5 +104,9 @@
   .nav-links a {
     font-size: 0.95rem;
     padding: 0.4rem 0.8rem;
+  }
+
+  body {
+    padding-top: 120px;
   }
 }
