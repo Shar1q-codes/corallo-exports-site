@@ -1,244 +1,43 @@
 /* ===============================
-   🎨 Premium Industrial Luxury Design System
+   🎨 Global Theme Configuration
    =============================== */
 
 :root {
-  /* 🔶 Primary Brand Colors - Refined Rust & Copper */
-  --primary-50: #fef7f0;
-  --primary-100: #fdeee0;
-  --primary-200: #fad9c1;
-  --primary-300: #f6be97;
-  --primary-400: #f09a6b;
-  --primary-500: #eb7a47;
-  --primary-600: #dc5f2a;
-  --primary-700: #b84820;
-  --primary-800: #93391e;
-  --primary-900: #76301d;
-  --primary-950: #40160c;
+  /* 🔶 Brand Colors */
+  --primary-color: #7b3411; /* Industrial ship rust (main brand color) */
+  --primary-hover: #652a0e; /* Rust hover variant */
+  --secondary-color: #1b1f3b; /* Deep navy for backgrounds, accents */
+  --accent-color: #b87333; /* Copper highlight for borders/buttons */
+  --background-color: #f4f4f4; /* Light industrial background (updated) */
+  --card-bg: #ffffff; /* Section or card background for contrast */
+  --text-color: #333333; /* Neutral dark text color */
 
-  /* 🔷 Secondary Colors - Deep Navy & Charcoal */
-  --secondary-50: #f8fafc;
-  --secondary-100: #f1f5f9;
-  --secondary-200: #e2e8f0;
-  --secondary-300: #cbd5e1;
-  --secondary-400: #94a3b8;
-  --secondary-500: #64748b;
-  --secondary-600: #475569;
-  --secondary-700: #334155;
-  --secondary-800: #1e293b;
-  --secondary-900: #0f172a;
-  --secondary-950: #020617;
+  /* 🔤 Typography */
+  --font-header: "Lato", sans-serif; /* Elegant, modern header font */
+  --font-body: "Inter", sans-serif; /* Highly readable body text font */
 
-  /* 🟡 Accent Colors - Warm Copper & Gold */
-  --accent-50: #fffbeb;
-  --accent-100: #fef3c7;
-  --accent-200: #fde68a;
-  --accent-300: #fcd34d;
-  --accent-400: #fbbf24;
-  --accent-500: #f59e0b;
-  --accent-600: #d97706;
-  --accent-700: #b45309;
-  --accent-800: #92400e;
-  --accent-900: #78350f;
-  --accent-950: #451a03;
-
-  /* 🔘 Neutral Colors - Sophisticated Grays */
-  --neutral-50: #fafafa;
-  --neutral-100: #f5f5f5;
-  --neutral-200: #e5e5e5;
-  --neutral-300: #d4d4d4;
-  --neutral-400: #a3a3a3;
-  --neutral-500: #737373;
-  --neutral-600: #525252;
-  --neutral-700: #404040;
-  --neutral-800: #262626;
-  --neutral-900: #171717;
-  --neutral-950: #0a0a0a;
-
-  /* 🎯 Semantic Color Tokens */
-  --primary-color: var(--primary-700);
-  --primary-hover: var(--primary-800);
-  --primary-light: var(--primary-100);
-  --primary-rgb: 184, 72, 32;
-
-  --secondary-color: var(--secondary-800);
-  --secondary-hover: var(--secondary-900);
-  --secondary-light: var(--secondary-100);
-
-  --accent-color: var(--accent-600);
-  --accent-hover: var(--accent-700);
-  --accent-light: var(--accent-100);
-
-  /* 📄 Background & Surface Colors */
-  --background-color: var(--neutral-50);
-  --background-secondary: var(--neutral-100);
-  --surface-color: #ffffff;
-  --surface-elevated: #ffffff;
-  --surface-overlay: rgba(255, 255, 255, 0.95);
-
-  /* 📝 Text Colors */
-  --text-primary: var(--neutral-900);
-  --text-secondary: var(--neutral-700);
-  --text-muted: var(--neutral-500);
-  --text-inverse: #ffffff;
-  --text-accent: var(--primary-700);
-
-  /* 🔲 Border & Divider Colors */
-  --border-color: var(--neutral-200);
-  --border-light: var(--neutral-100);
-  --border-strong: var(--neutral-300);
-  --divider-color: var(--neutral-200);
-
-  /* 🎨 Interactive States */
-  --hover-overlay: rgba(0, 0, 0, 0.04);
-  --active-overlay: rgba(0, 0, 0, 0.08);
-  --focus-ring: var(--primary-500);
-  --selection-bg: var(--primary-100);
-
-  /* 🌟 Status Colors */
-  --success-color: #059669;
-  --success-light: #d1fae5;
-  --warning-color: #d97706;
-  --warning-light: #fef3c7;
-  --error-color: #dc2626;
-  --error-light: #fee2e2;
-  --info-color: #2563eb;
-  --info-light: #dbeafe;
-
-  /* 🔤 Typography Scale */
-  --font-header: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
-
-  /* 📏 Spacing Scale */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
-
-  /* 🧱 Design Tokens */
-  --radius-sm: 6px;
-  --radius: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-full: 9999px;
-
-  /* 🌫️ Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-
-  /* 🎭 Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
-  --gradient-secondary: linear-gradient(135deg, var(--secondary-700) 0%, var(--secondary-900) 100%);
-  --gradient-accent: linear-gradient(135deg, var(--accent-500) 0%, var(--accent-700) 100%);
-  --gradient-warm: linear-gradient(135deg, var(--primary-500) 0%, var(--accent-600) 100%);
-  --gradient-cool: linear-gradient(135deg, var(--secondary-600) 0%, var(--secondary-800) 100%);
-
-  /* 🌊 Backdrop Effects */
-  --backdrop-blur: blur(12px);
-  --backdrop-saturate: saturate(180%);
-}
-
-/* ===============================
-   🌙 Dark Mode Support (Optional)
-   =============================== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: var(--neutral-900);
-    --background-secondary: var(--neutral-800);
-    --surface-color: var(--neutral-800);
-    --surface-elevated: var(--neutral-700);
-    --surface-overlay: rgba(38, 38, 38, 0.95);
-
-    --text-primary: var(--neutral-50);
-    --text-secondary: var(--neutral-300);
-    --text-muted: var(--neutral-400);
-    --text-accent: var(--primary-400);
-
-    --border-color: var(--neutral-700);
-    --border-light: var(--neutral-800);
-    --border-strong: var(--neutral-600);
-    --divider-color: var(--neutral-700);
-
-    --hover-overlay: rgba(255, 255, 255, 0.04);
-    --active-overlay: rgba(255, 255, 255, 0.08);
-  }
+  /* 🧱 UI Constants */
+  --radius: 12px; /* Default border radius */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft universal shadow */
 }
 
 /* ===============================
    🖥️ Base Reset & Typography
    =============================== */
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   padding: 0;
   font-family: var(--font-body);
-  font-weight: 400;
-  line-height: 1.6;
   background-color: var(--background-color);
-  color: var(--text-primary);
+  color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html,
 body {
   max-width: 100%;
   overflow-x: hidden;
-}
-
-/* 📱 Container Utility */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 var(--space-md);
-  }
-}
-
-/* 🎨 Utility Classes */
-.text-primary { color: var(--text-primary); }
-.text-secondary { color: var(--text-secondary); }
-.text-muted { color: var(--text-muted); }
-.text-accent { color: var(--text-accent); }
-
-.bg-primary { background-color: var(--primary-color); }
-.bg-secondary { background-color: var(--secondary-color); }
-.bg-surface { background-color: var(--surface-color); }
-
-.shadow-sm { box-shadow: var(--shadow-sm); }
-.shadow { box-shadow: var(--shadow); }
-.shadow-md { box-shadow: var(--shadow-md); }
-.shadow-lg { box-shadow: var(--shadow-lg); }
-
-.rounded { border-radius: var(--radius); }
-.rounded-lg { border-radius: var(--radius-lg); }
-.rounded-full { border-radius: var(--radius-full); }
-
-/* 🎯 Focus States */
-*:focus {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 2px;
-}
-
-/* 🔗 Selection */
-::selection {
-  background-color: var(--selection-bg);
-  color: var(--text-primary);
 }
