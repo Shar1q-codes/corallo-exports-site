@@ -1,5 +1,5 @@
 /**
- * Home Page
+ * Home Page Component
  * Landing page showcasing Corallo's services and expertise
  */
 

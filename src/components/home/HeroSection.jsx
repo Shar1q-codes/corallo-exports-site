@@ -6,7 +6,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Award, Globe, Shield } from "lucide-react";
 import Button from "../Button";
-import FadeInView from "../FadeInView";
 import styles from "../../styles/HeroSection.module.css";
 
 export default function HeroSection() {
