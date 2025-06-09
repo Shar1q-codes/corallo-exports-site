@@ -1,124 +1,244 @@
-import React from "react";
+/**
+ * Services Page
+ * Detailed overview of Corallo's service offerings
+ */
+
 import { motion } from "framer-motion";
-import "../styles/pages/Services.css";
+import { 
+  Globe2, 
+  ShieldCheck, 
+  FileText, 
+  Truck, 
+  Banknote, 
+  Users,
+  CheckCircle,
+  ArrowRight
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import Button from "../components/Button";
+import FadeInView from "../components/FadeInView";
+import styles from "../styles/Services.module.css";
 
 export default function Services() {
   const services = [
     {
-      title: "Sourcing & Procurement",
-      description: "Connecting buyers with verified suppliers for premium products across global markets.",
-      icon: "🔍",
-      features: ["Global supplier network", "Quality verification", "Competitive pricing"]
+      icon: <Globe2 size={40} />,
+      title: "Global Sourcing & Procurement",
+      description: "Connect with verified suppliers worldwide for premium products across multiple industries.",
+      features: [
+        "Supplier verification and due diligence",
+        "Product quality assessment",
+        "Competitive pricing negotiation",
+        "Market intelligence and trends"
+      ]
     },
     {
+      icon: <ShieldCheck size={40} />,
       title: "Quality Assurance",
-      description: "Ensuring product compliance with international standards and certifications.",
-      icon: "✓",
-      features: ["ISO compliance", "Third-party testing", "Documentation support"]
+      description: "Rigorous quality control ensuring international standards and certifications.",
+      features: [
+        "ISO compliance verification",
+        "Third-party inspection services",
+        "Certificate of analysis provision",
+        "Quality dispute resolution"
+      ]
     },
     {
-      title: "Contract Management",
-      description: "Drafting and negotiating secure trade contracts with transparent terms.",
-      icon: "📄",
-      features: ["Legal compliance", "Risk mitigation", "Transparent terms"]
+      icon: <FileText size={40} />,
+      title: "Documentation & Compliance",
+      description: "Complete trade documentation and compliance support for seamless transactions.",
+      features: [
+        "Export-import documentation",
+        "Customs clearance assistance",
+        "Regulatory compliance guidance",
+        "Contract drafting and review"
+      ]
     },
     {
+      icon: <Truck size={40} />,
       title: "Logistics Coordination",
-      description: "Coordinating seamless shipments via trusted freight and shipping partners.",
-      icon: "🚢",
-      features: ["Global shipping", "Customs clearance", "Real-time tracking"]
+      description: "End-to-end logistics coordination with trusted shipping partners globally.",
+      features: [
+        "Freight forwarding arrangements",
+        "Shipping route optimization",
+        "Cargo insurance coordination",
+        "Real-time shipment tracking"
+      ]
     },
     {
-      title: "Payment Facilitation",
-      description: "Handling secure payments via Letters of Credit, escrow, and verified gateways.",
-      icon: "💳",
-      features: ["Secure transactions", "Multiple payment methods", "Risk protection"]
+      icon: <Banknote size={40} />,
+      title: "Secure Payment Processing",
+      description: "Safe transaction processing through Letters of Credit and verified gateways.",
+      features: [
+        "Letter of Credit facilitation",
+        "Escrow service coordination",
+        "Payment term negotiation",
+        "Financial risk assessment"
+      ]
     },
     {
-      title: "Market Intelligence",
-      description: "Providing insights on market trends, pricing, and opportunities.",
-      icon: "📊",
-      features: ["Market analysis", "Price forecasting", "Trend reports"]
+      icon: <Users size={40} />,
+      title: "Expert Consultation",
+      description: "Dedicated team providing market intelligence and trade consultation.",
+      features: [
+        "Market analysis and insights",
+        "Trade strategy development",
+        "Risk assessment and mitigation",
+        "Ongoing relationship management"
+      ]
+    }
+  ];
+
+  const process = [
+    {
+      step: "01",
+      title: "Initial Consultation",
+      description: "We understand your requirements and assess your trade needs."
     },
+    {
+      step: "02",
+      title: "Partner Matching",
+      description: "We identify and connect you with verified suppliers or buyers."
+    },
+    {
+      step: "03",
+      title: "Quality Verification",
+      description: "We ensure products meet your specifications and standards."
+    },
+    {
+      step: "04",
+      title: "Transaction Support",
+      description: "We facilitate secure payments and documentation."
+    },
+    {
+      step: "05",
+      title: "Logistics Coordination",
+      description: "We manage shipping and delivery to your destination."
+    },
+    {
+      step: "06",
+      title: "Ongoing Support",
+      description: "We provide continued support and relationship management."
+    }
   ];
 
   return (
-    <div className="services-page">
-      <motion.div 
-        className="services-hero"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="hero-content">
-          <h1>Our Services</h1>
-          <p>Comprehensive trade solutions for global business success</p>
-          <div className="hero-stats">
-            <div className="stat">
-              <span className="stat-number">500+</span>
-              <span className="stat-label">Global Partners</span>
+    <motion.main
+      className={styles.page}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroOverlay} />
+        <div className={styles.container}>
+          <FadeInView className={styles.heroContent}>
+            <h1>Our Services</h1>
+            <p>
+              Comprehensive trade solutions designed to streamline your global 
+              business operations and maximize your success in international markets.
+            </p>
+            <div className={styles.heroStats}>
+              <div className={styles.heroStat}>
+                <span className={styles.statNumber}>500+</span>
+                <span className={styles.statLabel}>Global Partners</span>
+              </div>
+              <div className={styles.heroStat}>
+                <span className={styles.statNumber}>50+</span>
+                <span className={styles.statLabel}>Countries</span>
+              </div>
+              <div className={styles.heroStat}>
+                <span className={styles.statNumber}>99%</span>
+                <span className={styles.statLabel}>Success Rate</span>
+              </div>
             </div>
-            <div className="stat">
-              <span className="stat-number">50+</span>
-              <span className="stat-label">Countries Served</span>
-            </div>
-            <div className="stat">
-              <span className="stat-number">99%</span>
-              <span className="stat-label">Success Rate</span>
-            </div>
-          </div>
+          </FadeInView>
         </div>
-      </motion.div>
+      </section>
 
-      <div className="services-container">
-        <motion.div 
-          className="services-intro"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2>End-to-End Trade Solutions</h2>
-          <p>From initial sourcing to final delivery, we provide comprehensive support for your global trade operations. Our experienced team ensures every transaction meets the highest standards of quality, compliance, and efficiency.</p>
-        </motion.div>
-
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <motion.div 
-              key={index} 
-              className="service-block"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-            >
-              <div className="service-content">
-                <div className="service-icon">{service.icon}</div>
+      <div className={styles.container}>
+        {/* Services Grid */}
+        <section className={styles.section}>
+          <FadeInView className={styles.sectionHeader}>
+            <h2>Comprehensive Trade Solutions</h2>
+            <p>
+              From sourcing to delivery, we provide end-to-end support for your 
+              global trade operations with expertise spanning multiple industries.
+            </p>
+          </FadeInView>
+          
+          <div className={styles.servicesGrid}>
+            {services.map((service, index) => (
+              <FadeInView
+                key={index}
+                delay={0.1 * index}
+                className={styles.serviceCard}
+              >
+                <div className={styles.serviceIcon}>
+                  {service.icon}
+                </div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <ul className="service-features">
+                <ul className={styles.featureList}>
                   {service.features.map((feature, idx) => (
-                    <li key={idx}>{feature}</li>
+                    <li key={idx}>
+                      <CheckCircle size={16} />
+                      <span>{feature}</span>
+                    </li>
                   ))}
                 </ul>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </FadeInView>
+            ))}
+          </div>
+        </section>
 
-        <motion.div 
-          className="services-cta"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2>Ready to streamline your global trade?</h2>
-          <p>Let our experts handle the complexities while you focus on growing your business.</p>
-          <a href="/contact" className="cta-button">Get Started Today</a>
-        </motion.div>
+        {/* Process Section */}
+        <section className={styles.section}>
+          <FadeInView className={styles.sectionHeader}>
+            <h2>Our Process</h2>
+            <p>
+              A streamlined approach to international trade that ensures 
+              efficiency, transparency, and success at every step.
+            </p>
+          </FadeInView>
+          
+          <div className={styles.processGrid}>
+            {process.map((step, index) => (
+              <FadeInView
+                key={index}
+                delay={0.1 * index}
+                className={styles.processStep}
+              >
+                <div className={styles.stepNumber}>{step.step}</div>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </FadeInView>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className={styles.ctaSection}>
+          <FadeInView className={styles.ctaContent}>
+            <h2>Ready to Streamline Your Global Trade?</h2>
+            <p>
+              Let our experts handle the complexities while you focus on 
+              growing your business. Contact us today to get started.
+            </p>
+            <Button
+              as={Link}
+              to="/contact"
+              variant="primary"
+              size="large"
+              icon={<ArrowRight size={20} />}
+            >
+              Get Started Today
+            </Button>
+          </FadeInView>
+        </section>
       </div>
-    </div>
+    </motion.main>
   );
 }

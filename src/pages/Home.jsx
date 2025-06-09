@@ -4,11 +4,11 @@
  */
 
 import { motion } from "framer-motion";
-import HeroSection from "../components/home/HeroSection";
-import AboutSection from "../components/home/AboutSection";
-import ServicesSection from "../components/home/ServicesSection";
-import ProductsSection from "../components/home/ProductsSection";
-import WhyChooseSection from "../components/home/WhyChooseSection";
+import HeroSection from "../components/homepage/HeroSection";
+import AboutPreview from "../components/homepage/AboutPreview";
+import ServicesPreview from "../components/homepage/ServicesPreview";
+import ProductHighlights from "../components/homepage/ProductHighlights";
+import WhyChooseUs from "../components/homepage/WhyChooseUs";
 import TestimonialsSection from "../components/home/TestimonialsSection";
 import CTASection from "../components/home/CTASection";
 
@@ -21,10 +21,10 @@ export default function Home() {
       transition={{ duration: 0.5 }}
     >
       <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <ProductsSection />
-      <WhyChooseSection />
+      <AboutPreview />
+      <ServicesPreview />
+      <ProductHighlights />
+      <WhyChooseUs />
       <TestimonialsSection />
       <CTASection />
     </motion.main>
