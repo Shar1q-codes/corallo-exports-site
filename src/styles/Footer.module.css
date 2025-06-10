@@ -1,3 +1,141 @@
 .footer {
-  /* Footer styles */
+  background: var(--bg-dark);
+  color: var(--text-inverse);
+  padding: var(--spacing-4xl) 0 var(--spacing-xl);
+  margin-top: auto;
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.brandSection {
+  max-width: 300px;
+}
+
+.brandName {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-inverse);
+  margin-bottom: var(--spacing-md);
+}
+
+.brandDescription {
+  color: var(--color-gray-300);
+  line-height: 1.6;
+}
+
+.linkSection h4,
+.contactSection h4 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-inverse);
+  margin-bottom: var(--spacing-lg);
+}
+
+.linkSection ul,
+.contactSection ul {
+  list-style: none;
+}
+
+.linkSection li,
+.contactSection li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.linkSection a {
+  color: var(--color-gray-300);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.linkSection a:hover {
+  color: var(--color-secondary-light);
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.contactIcon {
+  color: var(--color-secondary);
+  margin-top: 2px;
+}
+
+.contactItem div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contactLabel {
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+  font-weight: 500;
+}
+
+.contactItem a,
+.contactItem span:last-child {
+  color: var(--color-gray-300);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contactItem a:hover {
+  color: var(--color-secondary-light);
+}
+
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-gray-700);
+}
+
+.footerBottom p {
+  color: var(--color-gray-400);
+  margin: 0;
+}
+
+.scrollToTop {
+  background: var(--color-secondary);
+  color: var(--color-gray-900);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.scrollToTop:hover {
+  background: var(--color-secondary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    text-align: center;
+  }
+  
+  .footerBottom {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
 }

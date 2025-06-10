@@ -1,9 +1,30 @@
+import { motion } from "framer-motion";
 import styles from "../styles/Products.module.css";
 
 export default function Products() {
   return (
-    <div className={styles.products}>
-      Products
-    </div>
+    <motion.div
+      className={styles.products}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <section className="section">
+        <div className="container">
+          <motion.div
+            className={styles.content}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1>Our Products</h1>
+            <p className={styles.subtitle}>
+              Quality products sourced from trusted global partners
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    </motion.div>
   );
 }

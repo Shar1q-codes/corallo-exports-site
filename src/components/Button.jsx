@@ -1,8 +1,3 @@
-/**
- * Button Component
- * Reusable button with multiple variants
- */
-
 import { motion } from "framer-motion";
 import styles from "../styles/Button.module.css";
 
