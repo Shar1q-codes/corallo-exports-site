@@ -1,50 +1,30 @@
-// ===============================
-// 📦 App.jsx - Industrial Luxury Architecture
-// 🎯 Core app entry with route config & layout wrapper
-// ===============================
-
 import { Routes, Route } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-
-// 🌐 Pages
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Products from "./pages/Products";
-import FAQs from "./pages/FAQs";
 import Contact from "./pages/Contact";
+import FAQs from "./pages/FAQs";
 import NotFound from "./pages/NotFound";
-
-// 🧱 Layout Components
-import Navigation from "./components/common/Navigation";
-import Footer from "./components/common/Footer";
-import ScrollToTop from "./components/common/ScrollToTop";
-import NominateNow from "./components/common/NominateNow";
-
-// 🎨 Global Styles
-import "./styles/global.css";
-import "./styles/theme.css";
 
 export default function App() {
   return (
     <>
-      <ScrollToTop />
-      <Navigation />
-      
-      <AnimatePresence mode="wait">
+      <Navbar />
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/faqs" element={<FAQs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faqs" element={<FAQs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </AnimatePresence>
-
+      </main>
       <Footer />
-      <NominateNow />
     </>
   );
 }
