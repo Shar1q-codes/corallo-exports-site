@@ -1,0 +1,41 @@
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import styles from "../styles/CTAButton.module.css";
+
+export default function CTAButton({
+  children,
+  variant = "primary",
+  size = "medium",
+  href,
+  onClick,
+  disabled = false,
+  className = "",
+  icon,
+  ...props
+}) {
+  const baseClasses = `${styles.button} ${styles[variant]} ${styles[size]} ${className}`;
+
+  const content = (
+    <>
+      {children}
+      {icon || <ArrowRight size={20} className={styles.icon} />}
+    </>
+  );
+
+  const MotionComponent = href ? motion.a : motion.button;
+
+  return (
+    <MotionComponent
+      className={baseClasses}
+      href={href}
+      onClick={onClick}
+      disabled={disabled}
+      whileHover={{ scale: disabled ? 1 : 1.02 }}
+      whileTap={{ scale: disabled ? 1 : 0.98 }}
+      transition={{ duration: 0.2 }}
+      {...props}
+    >
+      {content}
+    </MotionComponent>
+  );
+}

@@ -1,7 +1,40 @@
 import { motion } from "framer-motion";
+import { Shield, Users, Globe, TrendingUp, CheckCircle, Award } from "lucide-react";
+import FadeInView from "../components/FadeInView";
+import CTAButton from "../components/CTAButton";
 import styles from "../styles/About.module.css";
 
 export default function About() {
+  const coreValues = [
+    {
+      icon: <Shield size={32} />,
+      title: "Integrity in every deal",
+      description: "We maintain the highest ethical standards in all our business transactions and partnerships."
+    },
+    {
+      icon: <Users size={32} />,
+      title: "Transparency in communication",
+      description: "Clear, honest communication with all stakeholders throughout the entire trade process."
+    },
+    {
+      icon: <Globe size={32} />,
+      title: "Long-term relationships",
+      description: "Building lasting partnerships based on trust, reliability, and mutual success."
+    },
+    {
+      icon: <TrendingUp size={32} />,
+      title: "Customer-centric brokerage",
+      description: "Putting our clients' needs first and delivering tailored solutions for their success."
+    }
+  ];
+
+  const achievements = [
+    { number: "500+", label: "Successful Deals" },
+    { number: "50+", label: "Countries Served" },
+    { number: "15+", label: "Years Experience" },
+    { number: "98%", label: "Client Satisfaction" }
+  ];
+
   return (
     <motion.div
       className={styles.about}
@@ -10,10 +43,11 @@ export default function About() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <section className="section">
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
         <div className="container">
           <motion.div
-            className={styles.content}
+            className={styles.heroContent}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -22,7 +56,152 @@ export default function About() {
             <p className={styles.subtitle}>
               Your trusted partner in global trade and commerce
             </p>
+            <p className={styles.heroDescription}>
+              Corallo is a specialized trade brokerage firm, not a manufacturer. We serve as the vital 
+              bridge connecting global buyers and sellers in the petrochemicals, metals, textiles, and 
+              leather industries through transparent, commission-based trade solutions.
+            </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section className={styles.missionSection}>
+        <div className="container">
+          <div className={styles.missionGrid}>
+            <FadeInView>
+              <div className={styles.missionContent}>
+                <h2>Our Mission</h2>
+                <p>
+                  To facilitate seamless international trade by connecting verified buyers and sellers 
+                  through our extensive global network. We specialize in commission-based brokerage 
+                  services that prioritize transparency, efficiency, and long-term partnerships.
+                </p>
+                <p>
+                  As trade brokers, we don't manufacture or hold inventory. Instead, we leverage our 
+                  deep industry knowledge and global connections to match the right buyers with the 
+                  right sellers, ensuring successful transactions for all parties involved.
+                </p>
+                
+                <div className={styles.highlights}>
+                  <div className={styles.highlight}>
+                    <CheckCircle size={24} />
+                    <span>Commission-based brokerage model</span>
+                  </div>
+                  <div className={styles.highlight}>
+                    <CheckCircle size={24} />
+                    <span>No inventory or manufacturing</span>
+                  </div>
+                  <div className={styles.highlight}>
+                    <CheckCircle size={24} />
+                    <span>Focus on trade facilitation</span>
+                  </div>
+                </div>
+              </div>
+            </FadeInView>
+            
+            <FadeInView delay={0.2}>
+              <div className={styles.achievementsGrid}>
+                {achievements.map((achievement, index) => (
+                  <div key={index} className={styles.achievementCard}>
+                    <div className={styles.achievementNumber}>{achievement.number}</div>
+                    <div className={styles.achievementLabel}>{achievement.label}</div>
+                  </div>
+                ))}
+              </div>
+            </FadeInView>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className={styles.valuesSection}>
+        <div className="container">
+          <FadeInView>
+            <div className={styles.sectionHeader}>
+              <h2>Our Core Values</h2>
+              <p>The principles that guide every aspect of our brokerage services</p>
+            </div>
+          </FadeInView>
+
+          <div className={styles.valuesGrid}>
+            {coreValues.map((value, index) => (
+              <FadeInView key={index} delay={0.1 * index}>
+                <div className={styles.valueCard}>
+                  <div className={styles.valueIcon}>{value.icon}</div>
+                  <h3>{value.title}</h3>
+                  <p>{value.description}</p>
+                </div>
+              </FadeInView>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section className={styles.experienceSection}>
+        <div className="container">
+          <div className={styles.experienceGrid}>
+            <FadeInView>
+              <div className={styles.experienceContent}>
+                <h2>15+ Years of Trade Excellence</h2>
+                <p>
+                  Since our establishment, Corallo has built a reputation as a reliable trade broker 
+                  in the global marketplace. Our team of experienced professionals understands the 
+                  complexities of international trade and works tirelessly to ensure smooth transactions.
+                </p>
+                <p>
+                  We have successfully facilitated hundreds of deals across multiple industries, 
+                  connecting businesses from over 50 countries. Our commission-based model aligns 
+                  our success with our clients' success, ensuring we're always working in your best interest.
+                </p>
+                
+                <div className={styles.experienceHighlights}>
+                  <div className={styles.experienceItem}>
+                    <Award size={24} />
+                    <div>
+                      <h4>Industry Recognition</h4>
+                      <p>Recognized for excellence in trade brokerage services</p>
+                    </div>
+                  </div>
+                  <div className={styles.experienceItem}>
+                    <Globe size={24} />
+                    <div>
+                      <h4>Global Reach</h4>
+                      <p>Active partnerships across 5 continents</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeInView>
+            
+            <FadeInView delay={0.2}>
+              <div className={styles.experienceImage}>
+                <img 
+                  src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                  alt="Global trade network" 
+                />
+              </div>
+            </FadeInView>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className={styles.ctaSection}>
+        <div className="container text-center">
+          <FadeInView>
+            <div className={styles.ctaContent}>
+              <h2>Ready to Partner with Us?</h2>
+              <p>
+                Join our network of successful traders and experience the difference that 
+                professional brokerage services can make for your business.
+              </p>
+              <CTAButton variant="primary" size="large">
+                Start Trading Today
+              </CTAButton>
+            </div>
+          </FadeInView>
         </div>
       </section>
     </motion.div>
