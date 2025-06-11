@@ -216,9 +216,10 @@ export default function Home() {
                 Let us help you navigate the complexities of international trade with our 
                 expert brokerage services and global network of verified partners.
               </p>
-              <CTAButton as={Link} to="/contact" variant="primary" size="large">
-                Contact Us Today
-              </CTAButton>
+              <Link to="/contact" className={styles.contactUsButton}>
+                <span>Contact Us Today</span>
+                <ArrowRight size={20} />
+              </Link>
             </div>
           </FadeInView>
         </div>

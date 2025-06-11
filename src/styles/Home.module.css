@@ -404,6 +404,42 @@
   line-height: 1.6;
 }
 
+.contactUsButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background: var(--color-rust);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: 2px solid var(--color-rust);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.contactUsButton:hover {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  color: var(--color-white);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.contactUsButton svg {
+  transition: transform var(--transition-fast);
+}
+
+.contactUsButton:hover svg {
+  transform: translateX(4px);
+}
+
 @media (max-width: 1024px) {
   .aboutGrid {
     grid-template-columns: 1fr;
