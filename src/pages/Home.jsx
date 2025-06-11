@@ -75,10 +75,10 @@ export default function Home() {
             </div>
 
             <div className={styles.heroActions}>
-              <CTAButton variant="primary" size="large">
+              <CTAButton as={Link} to="/contact" variant="primary" size="large">
                 Start Trading
               </CTAButton>
-              <CTAButton variant="outline" size="large">
+              <CTAButton as={Link} to="/about" variant="outline" size="large">
                 Learn More
               </CTAButton>
             </div>
@@ -215,7 +215,7 @@ export default function Home() {
                 Let us help you navigate the complexities of international trade with our 
                 expert brokerage services and global network of verified partners.
               </p>
-              <CTAButton variant="primary" size="large">
+              <CTAButton as={Link} to="/contact" variant="primary" size="large">
                 Contact Us Today
               </CTAButton>
             </div>
