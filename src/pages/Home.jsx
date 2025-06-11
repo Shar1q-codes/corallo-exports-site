@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Globe, Users, Shield, TrendingUp } from "lucide-react";
+import { Link } from "react-router-dom";
 import CTAButton from "../components/CTAButton";
 import FadeInView from "../components/FadeInView";
 import styles from "../styles/Home.module.css";
@@ -105,6 +106,57 @@ export default function Home() {
                 </div>
               </FadeInView>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Preview Section */}
+      <section className={styles.aboutPreview}>
+        <div className="container">
+          <div className={styles.aboutGrid}>
+            <FadeInView>
+              <div className={styles.aboutContent}>
+                <h2>Your Trusted Trade Partner</h2>
+                <p className={styles.aboutDescription}>
+                  With over 15 years of experience in international trade, Corallo has established 
+                  itself as a reliable bridge between global buyers and sellers. We specialize in 
+                  commission-based brokerage services that prioritize transparency and long-term partnerships.
+                </p>
+                <p>
+                  Our extensive network spans across 50+ countries, connecting businesses with 
+                  verified suppliers and buyers in petrochemicals, metals, textiles, and leather industries. 
+                  We don't manufacture or hold inventory – we facilitate successful trade relationships.
+                </p>
+                
+                <div className={styles.aboutHighlights}>
+                  <div className={styles.highlight}>
+                    <CheckCircle size={20} />
+                    <span>Commission-based model</span>
+                  </div>
+                  <div className={styles.highlight}>
+                    <CheckCircle size={20} />
+                    <span>Verified global network</span>
+                  </div>
+                  <div className={styles.highlight}>
+                    <CheckCircle size={20} />
+                    <span>Transparent processes</span>
+                  </div>
+                </div>
+
+                <CTAButton as={Link} to="/about" variant="secondary" size="medium">
+                  Learn More About Us
+                </CTAButton>
+              </div>
+            </FadeInView>
+            
+            <FadeInView delay={0.2}>
+              <div className={styles.aboutImage}>
+                <img 
+                  src="/src/assets/home/about-preview.png" 
+                  alt="Global trade network and partnerships" 
+                />
+              </div>
+            </FadeInView>
           </div>
         </div>
       </section>
