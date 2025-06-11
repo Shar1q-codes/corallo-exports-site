@@ -35,9 +35,9 @@
   transform: translateY(-2px);
 }
 
-/* Specific style for Start Trading button hover */
-.primary.startTrading:hover:not(:disabled) {
-  color: white;
+/* Specific style for Start Trading button hover - more specific selector */
+.button.primary.startTrading:hover:not(:disabled) {
+  color: white !important;
 }
 
 .secondary {
