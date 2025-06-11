@@ -35,9 +35,10 @@
   transform: translateY(-2px);
 }
 
-/* Specific style for Start Trading button hover - more specific selector */
-.button.primary.startTrading:hover:not(:disabled) {
-  color: white !important;
+/* Override for Start Trading button specifically */
+.startTrading.primary:hover:not(:disabled) {
+  color: var(--color-white) !important;
+  background: var(--color-primary-light) !important;
 }
 
 .secondary {
