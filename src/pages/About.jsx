@@ -43,25 +43,39 @@ export default function About() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Hero Section */}
+      {/* Hero Section with Image */}
       <section className={styles.heroSection}>
         <div className="container">
-          <motion.div
-            className={styles.heroContent}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1>About Corallo</h1>
-            <p className={styles.subtitle}>
-              Your trusted partner in global trade and commerce
-            </p>
-            <p className={styles.heroDescription}>
-              Corallo is a specialized trade brokerage firm, not a manufacturer. We serve as the vital 
-              bridge connecting global buyers and sellers in the petrochemicals, metals, textiles, and 
-              leather industries through transparent, commission-based trade solutions.
-            </p>
-          </motion.div>
+          <div className={styles.heroGrid}>
+            <motion.div
+              className={styles.heroContent}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1>About Corallo</h1>
+              <p className={styles.subtitle}>
+                Your trusted partner in global trade and commerce
+              </p>
+              <p className={styles.heroDescription}>
+                Corallo is a specialized trade brokerage firm, not a manufacturer. We serve as the vital 
+                bridge connecting global buyers and sellers in the petrochemicals, metals, textiles, and 
+                leather industries through transparent, commission-based trade solutions.
+              </p>
+            </motion.div>
+            
+            <motion.div
+              className={styles.heroImage}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <img 
+                src="/src/assets/about/about-hero-handshake.png" 
+                alt="Professional handshake representing global trade partnerships and business relationships"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -134,6 +148,55 @@ export default function About() {
                 </div>
               </FadeInView>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Global Presence Section with Map */}
+      <section className={styles.globalSection}>
+        <div className="container">
+          <div className={styles.globalGrid}>
+            <FadeInView>
+              <div className={styles.globalContent}>
+                <h2>Global Trade Network</h2>
+                <p>
+                  Our extensive network spans across 50+ countries, connecting businesses with 
+                  verified suppliers and buyers worldwide. We have established strong partnerships 
+                  in key trading regions including North America, Europe, Asia, and emerging markets.
+                </p>
+                <p>
+                  Through our global presence, we facilitate cross-border trade relationships that 
+                  drive business growth and create lasting value for our partners. Our deep understanding 
+                  of regional markets and trade regulations ensures smooth transactions across continents.
+                </p>
+                
+                <div className={styles.globalHighlights}>
+                  <div className={styles.globalItem}>
+                    <Globe size={24} />
+                    <div>
+                      <h4>50+ Countries</h4>
+                      <p>Active trading partnerships worldwide</p>
+                    </div>
+                  </div>
+                  <div className={styles.globalItem}>
+                    <Award size={24} />
+                    <div>
+                      <h4>Verified Network</h4>
+                      <p>All partners undergo rigorous verification</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeInView>
+            
+            <FadeInView delay={0.2}>
+              <div className={styles.globalImage}>
+                <img 
+                  src="/src/assets/about/world-trade-map.png" 
+                  alt="World map showing global trade network and international business connections across continents"
+                />
+              </div>
+            </FadeInView>
           </div>
         </div>
       </section>

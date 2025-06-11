@@ -24,12 +24,17 @@
   pointer-events: none;
 }
 
-.heroContent {
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
   position: relative;
   z-index: 1;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
+}
+
+.heroContent {
+  max-width: 600px;
 }
 
 .heroContent h1 {
@@ -48,8 +53,24 @@
   font-size: 1.25rem;
   color: var(--text-secondary);
   line-height: 1.7;
-  max-width: 800px;
-  margin: 0 auto;
+}
+
+.heroImage {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.heroImage img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.heroImage:hover img {
+  transform: scale(1.05);
 }
 
 .missionSection {
@@ -245,9 +266,109 @@
   line-height: 1.6;
 }
 
-.experienceSection {
+.globalSection {
   background: var(--bg-primary);
   padding: var(--spacing-4xl) 0;
+}
+
+.globalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+}
+
+.globalContent h2 {
+  color: var(--color-rust);
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+.globalContent h2::after {
+  content: '';
+  position: absolute;
+  bottom: -var(--spacing-sm);
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: var(--color-copper);
+  border-radius: 2px;
+}
+
+.globalContent p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+}
+
+.globalHighlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.globalItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+.globalItem svg {
+  color: var(--color-copper);
+  margin-top: 4px;
+}
+
+.globalItem h4 {
+  color: var(--color-rust);
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.125rem;
+}
+
+.globalItem p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.globalImage {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.globalImage img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.globalImage:hover img {
+  transform: scale(1.05);
+}
+
+.experienceSection {
+  background: var(--bg-secondary);
+  padding: var(--spacing-4xl) 0;
+  position: relative;
+}
+
+.experienceSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(179, 71, 39, 0.02) 0%, 
+    rgba(201, 138, 95, 0.03) 50%, 
+    rgba(179, 71, 39, 0.02) 100%
+  );
+  pointer-events: none;
 }
 
 .experienceGrid {
@@ -255,6 +376,8 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-4xl);
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .experienceContent h2 {
@@ -330,29 +453,11 @@
 }
 
 .ctaSection {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   padding: var(--spacing-4xl) 0;
-  position: relative;
-}
-
-.ctaSection::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, 
-    rgba(179, 71, 39, 0.03) 0%, 
-    rgba(201, 138, 95, 0.05) 50%, 
-    rgba(179, 71, 39, 0.03) 100%
-  );
-  pointer-events: none;
 }
 
 .ctaContent {
-  position: relative;
-  z-index: 1;
   max-width: 700px;
   margin: 0 auto;
 }
@@ -370,7 +475,9 @@
 }
 
 @media (max-width: 1024px) {
+  .heroGrid,
   .missionGrid,
+  .globalGrid,
   .experienceGrid {
     grid-template-columns: 1fr;
     gap: var(--spacing-2xl);
@@ -378,6 +485,7 @@
   }
   
   .missionContent h2::after,
+  .globalContent h2::after,
   .experienceContent h2::after {
     left: 50%;
     transform: translateX(-50%);
@@ -406,6 +514,8 @@
     max-width: 200px;
   }
   
+  .heroImage img,
+  .globalImage img,
   .experienceImage img {
     height: 300px;
   }
