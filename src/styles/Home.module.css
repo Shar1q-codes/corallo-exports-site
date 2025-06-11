@@ -25,31 +25,32 @@
 }
 
 .heroContent h1 {
-  color: var(--color-rust);
+  color: var(--color-white);
   margin-bottom: var(--spacing-lg);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
   line-height: 1.2;
+  font-weight: 800;
 }
 
 .heroSubtitle {
   font-size: 1.5rem;
-  color: var(--color-copper);
+  color: var(--color-white);
   margin-bottom: var(--spacing-lg);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .heroDescription {
   font-size: 1.25rem;
-  color: var(--text-secondary);
+  color: var(--color-white);
   margin-bottom: var(--spacing-2xl);
   line-height: 1.6;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .statsGrid {
