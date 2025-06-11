@@ -1,10 +1,10 @@
 /* ===============================
-   ℹ️ About Section - Industrial Luxury
+   ℹ️ About Section - Rust-Dominant Theme
    =============================== */
 
 .section {
-  padding: var(--space-2xl) 0;
-  background: var(--background);
+  padding: var(--spacing-4xl) 0;
+  background: var(--bg-secondary);
   position: relative;
   overflow: hidden;
 }
@@ -18,9 +18,9 @@
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(184, 115, 51, 0.02) 0%,
-    rgba(200, 127, 79, 0.02) 50%,
-    rgba(184, 115, 51, 0.02) 100%
+    rgba(179, 71, 39, 0.02) 0%,
+    rgba(201, 138, 95, 0.02) 50%,
+    rgba(179, 71, 39, 0.02) 100%
   );
   pointer-events: none;
 }
@@ -28,7 +28,7 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-md);
+  padding: 0 var(--spacing-md);
   position: relative;
   z-index: 1;
 }
@@ -36,7 +36,7 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-2xl);
+  gap: var(--spacing-4xl);
   align-items: center;
 }
 
@@ -69,14 +69,14 @@
   right: 0;
   background: linear-gradient(
     to top,
-    rgba(126, 74, 53, 0.9) 0%,
-    rgba(126, 74, 53, 0.7) 50%,
+    rgba(179, 71, 39, 0.9) 0%,
+    rgba(179, 71, 39, 0.7) 50%,
     transparent 100%
   );
-  padding: var(--space-lg);
+  padding: var(--spacing-lg);
   color: white;
   transform: translateY(100%);
-  transition: transform var(--transition-base);
+  transition: transform var(--transition-normal);
 }
 
 .imageWrapper:hover .imageOverlay {
@@ -84,10 +84,10 @@
 }
 
 .overlayContent h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 2rem;
-  margin-bottom: var(--space-xs);
-  color: var(--accent);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-copper);
 }
 
 .overlayContent p {
@@ -96,10 +96,10 @@
 }
 
 .content h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  color: var(--primary);
-  margin-bottom: var(--space-lg);
+  color: var(--color-rust);
+  margin-bottom: var(--spacing-lg);
   line-height: 1.2;
   position: relative;
 }
@@ -107,11 +107,11 @@
 .content h2::after {
   content: '';
   position: absolute;
-  bottom: -var(--space-sm);
+  bottom: -var(--spacing-sm);
   left: 0;
   width: 80px;
   height: 4px;
-  background: var(--gradient-accent);
+  background: var(--color-copper);
   border-radius: 2px;
 }
 
@@ -119,46 +119,46 @@
   font-size: 1.25rem;
   line-height: 1.7;
   color: var(--text-secondary);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .features {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-lg);
-  margin-bottom: var(--space-xl);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
 }
 
 .feature {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-md);
-  padding: var(--space-lg);
-  background: var(--surface);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  transition: all var(--transition-base);
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(201, 138, 95, 0.2);
+  transition: all var(--transition-normal);
 }
 
 .feature:hover {
-  background: rgba(184, 115, 51, 0.05);
-  border-color: rgba(184, 115, 51, 0.2);
+  background: rgba(179, 71, 39, 0.05);
+  border-color: var(--color-copper);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 .featureIcon {
-  color: var(--accent);
-  background: rgba(200, 127, 79, 0.1);
-  padding: var(--space-sm);
-  border-radius: var(--radius);
+  color: var(--color-copper);
+  background: rgba(201, 138, 95, 0.1);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
   flex-shrink: 0;
 }
 
 .featureContent h4 {
-  font-family: var(--font-display);
-  color: var(--primary);
-  margin-bottom: var(--space-xs);
+  font-family: var(--font-heading);
+  color: var(--color-rust);
+  margin-bottom: var(--spacing-xs);
   font-size: 1.125rem;
 }
 
@@ -171,10 +171,10 @@
 .stats {
   display: flex;
   justify-content: space-between;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-xl);
-  padding: var(--space-lg);
-  background: var(--gradient-primary);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--color-rust) 0%, var(--color-copper) 100%);
   border-radius: var(--radius-lg);
   color: white;
   position: relative;
@@ -207,12 +207,12 @@
 }
 
 .statNumber {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
-  color: var(--accent);
+  color: var(--color-white);
   line-height: 1;
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--spacing-xs);
 }
 
 .statLabel {
@@ -230,7 +230,7 @@
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: var(--spacing-xl);
     text-align: center;
   }
   
@@ -241,18 +241,18 @@
   
   .features {
     grid-template-columns: 1fr;
-    gap: var(--space-md);
+    gap: var(--spacing-md);
   }
   
   .stats {
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--spacing-md);
   }
   
   .stat {
     flex-direction: row;
     justify-content: center;
-    gap: var(--space-sm);
+    gap: var(--spacing-sm);
   }
 }
 
@@ -264,13 +264,13 @@
   .imageOverlay {
     position: static;
     transform: none;
-    background: rgba(126, 74, 53, 0.1);
-    margin-top: var(--space-md);
-    border-radius: var(--radius);
+    background: rgba(179, 71, 39, 0.1);
+    margin-top: var(--spacing-md);
+    border-radius: var(--radius-md);
   }
   
   .overlayContent h3 {
-    color: var(--primary);
+    color: var(--color-rust);
   }
   
   .overlayContent p {
@@ -282,12 +282,12 @@
   }
   
   .feature {
-    padding: var(--space-md);
+    padding: var(--spacing-md);
   }
   
   .stat {
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: var(--spacing-xs);
   }
 }
 
@@ -297,7 +297,7 @@
   }
   
   .grid {
-    gap: var(--space-2xl);
+    gap: var(--spacing-4xl);
   }
 }
 
@@ -314,13 +314,13 @@
   .imageOverlay {
     position: static;
     transform: none;
-    background: rgba(126, 74, 53, 0.1);
-    margin-top: var(--space-md);
-    border-radius: var(--radius);
+    background: rgba(179, 71, 39, 0.1);
+    margin-top: var(--spacing-md);
+    border-radius: var(--radius-md);
   }
   
   .overlayContent h3 {
-    color: var(--primary);
+    color: var(--color-rust);
   }
   
   .overlayContent p {
@@ -332,13 +332,13 @@
   .imageOverlay {
     position: static;
     transform: none;
-    background: rgba(126, 74, 53, 0.1);
-    margin-top: var(--space-md);
-    border-radius: var(--radius);
+    background: rgba(179, 71, 39, 0.1);
+    margin-top: var(--spacing-md);
+    border-radius: var(--radius-md);
   }
   
   .overlayContent h3 {
-    color: var(--primary);
+    color: var(--color-rust);
   }
   
   .overlayContent p {

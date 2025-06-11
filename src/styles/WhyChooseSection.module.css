@@ -1,10 +1,10 @@
 /* ===============================
-   🎯 Why Choose Section - Industrial Luxury
+   🎯 Why Choose Section - Rust-Dominant Theme
    =============================== */
 
 .section {
-  padding: var(--space-2xl) 0;
-  background: var(--surface);
+  padding: var(--spacing-4xl) 0;
+  background: var(--bg-primary);
   position: relative;
 }
 
@@ -17,9 +17,9 @@
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(200, 127, 79, 0.02) 0%,
-    rgba(184, 115, 51, 0.02) 50%,
-    rgba(200, 127, 79, 0.02) 100%
+    rgba(201, 138, 95, 0.02) 0%,
+    rgba(179, 71, 39, 0.02) 50%,
+    rgba(201, 138, 95, 0.02) 100%
   );
   pointer-events: none;
 }
@@ -27,36 +27,36 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-md);
+  padding: 0 var(--spacing-md);
   position: relative;
   z-index: 1;
 }
 
 .header {
   text-align: center;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--spacing-4xl);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .header h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  color: var(--primary);
-  margin-bottom: var(--space-lg);
+  color: var(--color-rust);
+  margin-bottom: var(--spacing-lg);
   position: relative;
 }
 
 .header h2::after {
   content: '';
   position: absolute;
-  bottom: -var(--space-sm);
+  bottom: -var(--spacing-sm);
   left: 50%;
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: var(--gradient-accent);
+  background: var(--color-copper);
   border-radius: 2px;
 }
 
@@ -69,15 +69,15 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-xl);
+  gap: var(--spacing-xl);
 }
 
 .reasonCard {
-  background: var(--background);
-  padding: var(--space-xl);
+  background: var(--bg-secondary);
+  padding: var(--spacing-xl);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  transition: all var(--transition-base);
+  border: 1px solid rgba(201, 138, 95, 0.2);
+  transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -94,15 +94,15 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--gradient-accent);
+  background: var(--color-copper);
   transform: scaleX(0);
-  transition: transform var(--transition-base);
+  transition: transform var(--transition-normal);
 }
 
 .reasonCard:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-xl);
-  border-color: rgba(200, 127, 79, 0.3);
+  border-color: var(--color-copper);
 }
 
 .reasonCard:hover::before {
@@ -110,25 +110,25 @@
 }
 
 .iconWrapper {
-  color: var(--accent);
-  background: rgba(200, 127, 79, 0.1);
-  padding: var(--space-lg);
+  color: var(--color-copper);
+  background: rgba(201, 138, 95, 0.1);
+  padding: var(--spacing-lg);
   border-radius: 50%;
-  margin-bottom: var(--space-lg);
-  transition: all var(--transition-base);
+  margin-bottom: var(--spacing-lg);
+  transition: all var(--transition-normal);
 }
 
 .reasonCard:hover .iconWrapper {
-  background: var(--gradient-accent);
+  background: var(--color-copper);
   color: white;
   transform: scale(1.1);
 }
 
 .reasonCard h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--primary);
-  margin-bottom: var(--space-md);
+  color: var(--color-rust);
+  margin-bottom: var(--spacing-md);
   font-weight: 600;
 }
 
@@ -146,21 +146,21 @@
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: var(--spacing-lg);
   }
   
   .reasonCard {
-    padding: var(--space-lg);
+    padding: var(--spacing-lg);
   }
   
   .iconWrapper {
-    padding: var(--space-md);
+    padding: var(--spacing-md);
   }
 }
 
 @media (max-width: 480px) {
   .reasonCard {
-    padding: var(--space-md);
+    padding: var(--spacing-md);
   }
 }
 

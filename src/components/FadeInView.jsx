@@ -1,8 +1,3 @@
-/**
- * FadeInView Component
- * Reusable animation wrapper for scroll-triggered animations
- */
-
 import { motion } from "framer-motion";
 
 export default function FadeInView({ 
