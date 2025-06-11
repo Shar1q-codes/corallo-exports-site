@@ -22,45 +22,52 @@
 
 /* Variants */
 .primary {
-  background: var(--color-primary);
-  color: var(--text-inverse);
+  background: var(--color-rust);
+  color: var(--color-white);
   box-shadow: var(--shadow-sm);
+  border: 2px solid var(--color-rust);
 }
 
 .primary:hover:not(:disabled) {
   background: var(--color-primary-light);
+  border-color: var(--color-primary-light);
   box-shadow: var(--shadow-md);
 }
 
 .secondary {
-  background: var(--color-secondary);
-  color: var(--color-gray-900);
+  background: var(--color-copper);
+  color: var(--color-white);
   box-shadow: var(--shadow-sm);
+  border: 2px solid var(--color-copper);
 }
 
 .secondary:hover:not(:disabled) {
   background: var(--color-secondary-light);
+  border-color: var(--color-secondary-light);
   box-shadow: var(--shadow-md);
 }
 
 .outline {
   background: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  color: var(--color-rust);
+  border: 2px solid var(--color-rust);
 }
 
 .outline:hover:not(:disabled) {
-  background: var(--color-primary);
-  color: var(--text-inverse);
+  background: var(--color-rust);
+  color: var(--color-white);
+  border-color: var(--color-rust);
 }
 
 .ghost {
   background: transparent;
-  color: var(--text-primary);
+  color: var(--color-rust);
+  border: 2px solid transparent;
 }
 
 .ghost:hover:not(:disabled) {
-  background: var(--color-gray-100);
+  background: rgba(179, 71, 39, 0.1);
+  border-color: var(--color-copper);
 }
 
 /* Sizes */

@@ -39,7 +39,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="section bg-secondary">
+      <section className="section bg-primary">
         <div className="container">
           <motion.div
             className={styles.featuresGrid}
@@ -68,9 +68,10 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="section">
+      <section className={`section ${styles.ctaSection}`}>
         <div className="container text-center">
           <motion.div
+            className={styles.ctaContent}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}

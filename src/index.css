@@ -1,39 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Color Scheme - Industrial Luxury */
-  --color-primary: #1a365d;
-  --color-primary-light: #2d5a87;
-  --color-primary-dark: #0f2a44;
-  --color-secondary: #d69e2e;
-  --color-secondary-light: #ecc94b;
-  --color-secondary-dark: #b7791f;
-  --color-accent: #e53e3e;
-  --color-accent-light: #fc8181;
-  --color-accent-dark: #c53030;
+  /* Rust-Dominant Color Scheme */
+  --color-rust: #B34727;          /* PRIMARY - Buttons, CTAs, headings, major highlights */
+  --color-sand: #F8F1EA;          /* BACKGROUND - Default section bg to let rust pop */
+  --color-copper: #C98A5F;        /* ACCENT - Subtle icons, borders, hover highlights */
+  --color-brown: #3E2B23;         /* TEXT - Use on light sections for readable contrast */
+  --color-white: #FAFAFA;         /* Alt text color on dark elements */
+  --color-charcoal: #1F1F1F;      /* DARK BASE - Only for footer or minor nav parts */
   
-  /* Neutral Colors */
-  --color-white: #ffffff;
-  --color-gray-50: #f7fafc;
-  --color-gray-100: #edf2f7;
-  --color-gray-200: #e2e8f0;
-  --color-gray-300: #cbd5e0;
-  --color-gray-400: #a0aec0;
-  --color-gray-500: #718096;
-  --color-gray-600: #4a5568;
-  --color-gray-700: #2d3748;
-  --color-gray-800: #1a202c;
-  --color-gray-900: #171923;
+  /* Semantic Color Mapping */
+  --color-primary: var(--color-rust);
+  --color-primary-light: #D55A3A;
+  --color-primary-dark: #9A3B1F;
+  --color-secondary: var(--color-copper);
+  --color-secondary-light: #E4A373;
+  --color-secondary-dark: #B5794B;
+  --color-accent: var(--color-copper);
+  --color-accent-light: #E4A373;
+  --color-accent-dark: #B5794B;
   
   /* Background Colors */
   --bg-primary: var(--color-white);
-  --bg-secondary: var(--color-gray-50);
-  --bg-dark: var(--color-gray-900);
+  --bg-secondary: var(--color-sand);
+  --bg-dark: var(--color-charcoal);
   
   /* Text Colors */
-  --text-primary: var(--color-gray-900);
-  --text-secondary: var(--color-gray-600);
-  --text-muted: var(--color-gray-500);
+  --text-primary: var(--color-brown);
+  --text-secondary: #5A453D;
+  --text-muted: #8B7066;
   --text-inverse: var(--color-white);
   
   /* Typography */
@@ -57,10 +52,10 @@
   --radius-xl: 1rem;
   
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 2px 0 rgba(179, 71, 39, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(179, 71, 39, 0.1), 0 2px 4px -1px rgba(179, 71, 39, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(179, 71, 39, 0.1), 0 4px 6px -2px rgba(179, 71, 39, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(179, 71, 39, 0.1), 0 10px 10px -5px rgba(179, 71, 39, 0.04);
   
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
@@ -83,7 +78,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: var(--text-primary);
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -103,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.2;
-  color: var(--text-primary);
+  color: var(--color-rust);
 }
 
 h1 {
@@ -129,7 +124,7 @@ p {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-rust);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
