@@ -7,14 +7,15 @@
     var(--color-rust) 100%
   );
   border-bottom: 2px solid rgba(201, 138, 95, 0.4);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(179, 71, 39, 0.3);
   
   /* Premium rust texture overlay */
-  position: relative;
 }
 
 .navbar::before {

@@ -81,6 +81,8 @@ body {
   background-color: var(--bg-secondary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Add padding-top to account for fixed navbar */
+  padding-top: 90px;
 }
 
 #root {
@@ -185,6 +187,11 @@ a:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  body {
+    /* Adjust padding for mobile navbar height */
+    padding-top: 80px;
+  }
+  
   .container,
   .container-wide {
     padding: 0 var(--spacing-lg);
@@ -196,6 +203,11 @@ a:hover {
 }
 
 @media (max-width: 480px) {
+  body {
+    /* Adjust padding for smaller mobile navbar */
+    padding-top: 75px;
+  }
+  
   .container,
   .container-wide {
     padding: 0 var(--spacing-md);
