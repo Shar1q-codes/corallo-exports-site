@@ -75,7 +75,7 @@ export default function Home() {
             </div>
 
             <div className={styles.heroActions}>
-              <CTAButton as={Link} to="/contact" variant="primary" size="large">
+              <CTAButton as={Link} to="/products" variant="primary" size="large">
                 Start Trading
               </CTAButton>
               <CTAButton as={Link} to="/about" variant="outline" size="large">
