@@ -7,6 +7,8 @@ export default function CTAButton({
   variant = "primary",
   size = "medium",
   href,
+  to,
+  as: Component,
   onClick,
   disabled = false,
   className = "",
@@ -22,12 +24,30 @@ export default function CTAButton({
     </>
   );
 
+  // If 'as' prop is provided (like Link), use that component
+  if (Component) {
+    return (
+      <Component
+        className={baseClasses}
+        to={to}
+        href={href}
+        onClick={onClick}
+        disabled={disabled}
+        {...props}
+      >
+        {content}
+      </Component>
+    );
+  }
+
+  // Otherwise use motion component as before
   const MotionComponent = href ? motion.a : motion.button;
 
   return (
     <MotionComponent
       className={baseClasses}
       href={href}
+      to={to}
       onClick={onClick}
       disabled={disabled}
       whileHover={{ scale: disabled ? 1 : 1.02 }}
