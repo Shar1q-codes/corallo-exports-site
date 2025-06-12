@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { HelmetProvider } from 'react-helmet-async';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -13,7 +14,7 @@ import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <>
+    <HelmetProvider>
       <ScrollToTop />
       <Navbar />
       <main>
@@ -30,6 +31,6 @@ export default function App() {
         </AnimatePresence>
       </main>
       <Footer />
-    </>
+    </HelmetProvider>
   );
 }

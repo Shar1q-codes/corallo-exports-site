@@ -4,6 +4,7 @@ import { Droplets, Zap, Shirt, Package, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import FadeInView from "../components/FadeInView";
 import CTAButton from "../components/CTAButton";
+import SEOHead from "../components/SEOHead";
 import PetrochemicalsDetailView from "../components/PetrochemicalsDetailView";
 import styles from "../styles/Products.module.css";
 
@@ -79,8 +80,100 @@ export default function Products() {
     }
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://phenomenal-gingersnap-e16472.netlify.app/products#webpage",
+    "url": "https://phenomenal-gingersnap-e16472.netlify.app/products",
+    "name": "Buy Petrochemicals, Aluminium, Textiles, Iron, Leather – Global Export Brokerage",
+    "description": "Source high-quality petrochemicals, aluminium scrap & ingots, iron ore, textiles, and leather products through our verified global supplier network.",
+    "isPartOf": {
+      "@id": "https://phenomenal-gingersnap-e16472.netlify.app/#website"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Trade Products",
+      "description": "Products available through Corallo's global trade brokerage network",
+      "itemListElement": [
+        {
+          "@type": "Product",
+          "name": "Petrochemicals",
+          "description": "Wide range of petrochemical products including polymers, chemicals, and refined petroleum products",
+          "category": "Petrochemicals",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@id": "https://phenomenal-gingersnap-e16472.netlify.app/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Product",
+          "name": "Aluminium Scrap & Ingots",
+          "description": "High-quality aluminium scrap and ingots from certified suppliers",
+          "category": "Metals",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@id": "https://phenomenal-gingersnap-e16472.netlify.app/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Product",
+          "name": "Iron & Iron Ore",
+          "description": "Premium iron ore and iron products from reliable mining operations",
+          "category": "Metals",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@id": "https://phenomenal-gingersnap-e16472.netlify.app/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Product",
+          "name": "Textiles",
+          "description": "Diverse range of textile products including fabrics, yarns, and finished garments",
+          "category": "Textiles",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@id": "https://phenomenal-gingersnap-e16472.netlify.app/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Product",
+          "name": "Leather",
+          "description": "High-quality leather products and raw materials from certified tanneries",
+          "category": "Leather",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@id": "https://phenomenal-gingersnap-e16472.netlify.app/#organization"
+            }
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <>
+      <SEOHead
+        title="Buy Petrochemicals, Aluminium, Textiles, Iron, Leather – Global Export Brokerage"
+        description="Source high-quality petrochemicals, aluminium scrap & ingots, iron ore, textiles, and leather products through our verified global supplier network. Get competitive prices and reliable delivery worldwide."
+        keywords="buy petrochemicals, aluminium scrap export, iron ore trading, textiles export, leather products, global sourcing, export import products"
+        canonicalUrl="/products"
+        structuredData={structuredData}
+      />
+      
       <motion.div
         className={styles.products}
         initial={{ opacity: 0 }}
@@ -122,7 +215,7 @@ export default function Products() {
             <div className={styles.productsGrid}>
               {products.map((product, index) => (
                 <FadeInView key={index} delay={0.1 * index}>
-                  <div className={styles.productCard}>
+                  <article className={styles.productCard}>
                     <div className={styles.productIcon}>{product.icon}</div>
                     <div className={styles.productContent}>
                       <h3>{product.title}</h3>
@@ -151,7 +244,7 @@ export default function Products() {
                         </div>
                       )}
                     </div>
-                  </div>
+                  </article>
                 </FadeInView>
               ))}
             </div>
@@ -163,7 +256,7 @@ export default function Products() {
           <div className="container">
             <div className={styles.qualityGrid}>
               <FadeInView>
-                <div className={styles.qualityContent}>
+                <article className={styles.qualityContent}>
                   <h2>Quality Assurance</h2>
                   <p>
                     We maintain the highest quality standards through rigorous supplier verification 
@@ -179,14 +272,15 @@ export default function Products() {
                       </div>
                     ))}
                   </div>
-                </div>
+                </article>
               </FadeInView>
               
               <FadeInView delay={0.2}>
                 <div className={styles.qualityImage}>
                   <img 
                     src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                    alt="Quality assurance process" 
+                    alt="Quality assurance process for export-import products including petrochemicals, metals, and textiles" 
+                    loading="lazy"
                   />
                 </div>
               </FadeInView>
@@ -206,45 +300,45 @@ export default function Products() {
 
             <div className={styles.industriesGrid}>
               <FadeInView delay={0.1}>
-                <div className={styles.industryCard}>
+                <article className={styles.industryCard}>
                   <h3>Manufacturing</h3>
                   <p>Raw materials and components for various manufacturing processes</p>
-                </div>
+                </article>
               </FadeInView>
               
               <FadeInView delay={0.2}>
-                <div className={styles.industryCard}>
+                <article className={styles.industryCard}>
                   <h3>Automotive</h3>
                   <p>High-grade metals and materials for automotive industry applications</p>
-                </div>
+                </article>
               </FadeInView>
               
               <FadeInView delay={0.3}>
-                <div className={styles.industryCard}>
+                <article className={styles.industryCard}>
                   <h3>Construction</h3>
                   <p>Quality materials for construction and infrastructure projects</p>
-                </div>
+                </article>
               </FadeInView>
               
               <FadeInView delay={0.4}>
-                <div className={styles.industryCard}>
+                <article className={styles.industryCard}>
                   <h3>Fashion & Textiles</h3>
                   <p>Premium fabrics and leather for fashion and textile industries</p>
-                </div>
+                </article>
               </FadeInView>
               
               <FadeInView delay={0.5}>
-                <div className={styles.industryCard}>
+                <article className={styles.industryCard}>
                   <h3>Chemical Processing</h3>
                   <p>Petrochemicals and raw materials for chemical processing</p>
-                </div>
+                </article>
               </FadeInView>
               
               <FadeInView delay={0.6}>
-                <div className={styles.industryCard}>
+                <article className={styles.industryCard}>
                   <h3>Energy</h3>
                   <p>Materials and components for energy sector applications</p>
-                </div>
+                </article>
               </FadeInView>
             </div>
           </div>

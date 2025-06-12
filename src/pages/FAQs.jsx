@@ -3,6 +3,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import FadeInView from "../components/FadeInView";
 import CTAButton from "../components/CTAButton";
+import SEOHead from "../components/SEOHead";
 import styles from "../styles/FAQs.module.css";
 
 export default function FAQs() {
@@ -55,121 +56,151 @@ export default function FAQs() {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://phenomenal-gingersnap-e16472.netlify.app/faqs#webpage",
+    "url": "https://phenomenal-gingersnap-e16472.netlify.app/faqs",
+    "name": "Frequently Asked Questions - Corallo Export Import",
+    "description": "Get answers to common questions about Corallo's trade brokerage services, processes, and international commerce solutions.",
+    "isPartOf": {
+      "@id": "https://phenomenal-gingersnap-e16472.netlify.app/#website"
+    },
+    "mainEntity": faqs.map((faq, index) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
-    <motion.div
-      className={styles.faqs}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      {/* Hero Section */}
-      <section className={styles.heroSection}>
-        <div className="container">
-          <motion.div
-            className={styles.heroContent}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1>Frequently Asked Questions</h1>
-            <p className={styles.subtitle}>
-              Find answers to common questions about our services
-            </p>
-            <p className={styles.heroDescription}>
-              Get quick answers to the most common questions about our trade brokerage services, 
-              processes, and how we can help facilitate your international trade requirements.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* FAQs Section */}
-      <section className={styles.faqsSection}>
-        <div className="container">
-          <FadeInView>
-            <div className={styles.sectionHeader}>
-              <h2>Common Questions</h2>
-              <p>Everything you need to know about working with Corallo</p>
-            </div>
-          </FadeInView>
-
-          <div className={styles.faqsContainer}>
-            {faqs.map((faq, index) => (
-              <FadeInView key={index} delay={0.05 * index}>
-                <div className={styles.faqItem}>
-                  <button
-                    className={`${styles.faqQuestion} ${openFAQ === index ? styles.active : ''}`}
-                    onClick={() => toggleFAQ(index)}
-                  >
-                    <span>{faq.question}</span>
-                    {openFAQ === index ? (
-                      <ChevronUp size={24} />
-                    ) : (
-                      <ChevronDown size={24} />
-                    )}
-                  </button>
-                  
-                  <motion.div
-                    className={styles.faqAnswer}
-                    initial={false}
-                    animate={{
-                      height: openFAQ === index ? "auto" : 0,
-                      opacity: openFAQ === index ? 1 : 0
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    <div className={styles.faqAnswerContent}>
-                      <p>{faq.answer}</p>
-                    </div>
-                  </motion.div>
-                </div>
-              </FadeInView>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Links */}
-      <section className={styles.quickLinksSection}>
-        <div className="container">
-          <FadeInView>
-            <div className={styles.quickLinksContent}>
-              <h2>Still Have Questions?</h2>
-              <p>
-                Can't find the answer you're looking for? Our team is here to help you with 
-                any specific questions about our trade brokerage services.
+    <>
+      <SEOHead
+        title="Frequently Asked Questions - Trade Brokerage Services | Corallo Export Import"
+        description="Get answers to common questions about Corallo's trade brokerage services, commission model, quality checks, documentation support, and international commerce processes."
+        keywords="trade brokerage FAQ, export import questions, commission model, quality checks, international trade process, corallo services"
+        canonicalUrl="/faqs"
+        structuredData={structuredData}
+      />
+      
+      <motion.div
+        className={styles.faqs}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {/* Hero Section */}
+        <section className={styles.heroSection}>
+          <div className="container">
+            <motion.div
+              className={styles.heroContent}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1>Frequently Asked Questions</h1>
+              <p className={styles.subtitle}>
+                Find answers to common questions about our services
               </p>
-              
-              <div className={styles.quickLinksGrid}>
-                <div className={styles.quickLinkCard}>
-                  <h3>Contact Our Team</h3>
-                  <p>Speak directly with our trade experts</p>
-                  <CTAButton variant="primary" size="medium">
-                    Contact Us
-                  </CTAButton>
-                </div>
+              <p className={styles.heroDescription}>
+                Get quick answers to the most common questions about our trade brokerage services, 
+                processes, and how we can help facilitate your international trade requirements.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* FAQs Section */}
+        <section className={styles.faqsSection}>
+          <div className="container">
+            <FadeInView>
+              <div className={styles.sectionHeader}>
+                <h2>Common Questions</h2>
+                <p>Everything you need to know about working with Corallo</p>
+              </div>
+            </FadeInView>
+
+            <div className={styles.faqsContainer}>
+              {faqs.map((faq, index) => (
+                <FadeInView key={index} delay={0.05 * index}>
+                  <article className={styles.faqItem} itemScope itemType="https://schema.org/Question">
+                    <button
+                      className={`${styles.faqQuestion} ${openFAQ === index ? styles.active : ''}`}
+                      onClick={() => toggleFAQ(index)}
+                    >
+                      <span itemProp="name">{faq.question}</span>
+                      {openFAQ === index ? (
+                        <ChevronUp size={24} />
+                      ) : (
+                        <ChevronDown size={24} />
+                      )}
+                    </button>
+                    
+                    <motion.div
+                      className={styles.faqAnswer}
+                      initial={false}
+                      animate={{
+                        height: openFAQ === index ? "auto" : 0,
+                        opacity: openFAQ === index ? 1 : 0
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <div className={styles.faqAnswerContent} itemScope itemType="https://schema.org/Answer">
+                        <p itemProp="text">{faq.answer}</p>
+                      </div>
+                    </motion.div>
+                  </article>
+                </FadeInView>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Links */}
+        <section className={styles.quickLinksSection}>
+          <div className="container">
+            <FadeInView>
+              <div className={styles.quickLinksContent}>
+                <h2>Still Have Questions?</h2>
+                <p>
+                  Can't find the answer you're looking for? Our team is here to help you with 
+                  any specific questions about our trade brokerage services.
+                </p>
                 
-                <div className={styles.quickLinkCard}>
-                  <h3>Our Services</h3>
-                  <p>Learn more about our brokerage services</p>
-                  <CTAButton variant="outline" size="medium">
-                    View Services
-                  </CTAButton>
-                </div>
-                
-                <div className={styles.quickLinkCard}>
-                  <h3>Get Started</h3>
-                  <p>Ready to begin your trade journey?</p>
-                  <CTAButton variant="secondary" size="medium">
-                    Start Trading
-                  </CTAButton>
+                <div className={styles.quickLinksGrid}>
+                  <article className={styles.quickLinkCard}>
+                    <h3>Contact Our Team</h3>
+                    <p>Speak directly with our trade experts</p>
+                    <CTAButton variant="primary" size="medium">
+                      Contact Us
+                    </CTAButton>
+                  </article>
+                  
+                  <article className={styles.quickLinkCard}>
+                    <h3>Our Services</h3>
+                    <p>Learn more about our brokerage services</p>
+                    <CTAButton variant="outline" size="medium">
+                      View Services
+                    </CTAButton>
+                  </article>
+                  
+                  <article className={styles.quickLinkCard}>
+                    <h3>Get Started</h3>
+                    <p>Ready to begin your trade journey?</p>
+                    <CTAButton variant="secondary" size="medium">
+                      Start Trading
+                    </CTAButton>
+                  </article>
                 </div>
               </div>
-            </div>
-          </FadeInView>
-        </div>
-      </section>
-    </motion.div>
+            </FadeInView>
+          </div>
+        </section>
+      </motion.div>
+    </>
   );
 }
