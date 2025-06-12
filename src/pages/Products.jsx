@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { Droplets, Zap, Shirt, Package, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import FadeInView from "../components/FadeInView";
 import CTAButton from "../components/CTAButton";
 import styles from "../styles/Products.module.css";
 
 export default function Products() {
+  const navigate = useNavigate();
+
   const products = [
     {
       icon: <Droplets size={48} />,
@@ -51,6 +54,20 @@ export default function Products() {
     "Traceability documentation",
     "Environmental compliance"
   ];
+
+  const handleRequestQuote = () => {
+    navigate('/contact');
+    // Scroll to form section after navigation
+    setTimeout(() => {
+      const formSection = document.querySelector('[class*="formSection"]');
+      if (formSection) {
+        formSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }
+    }, 100);
+  };
 
   return (
     <motion.div
@@ -220,7 +237,11 @@ export default function Products() {
                 Contact us to discuss your specific product requirements. Our team will help you 
                 find the right suppliers and ensure quality products for your business needs.
               </p>
-              <CTAButton variant="primary" size="large">
+              <CTAButton 
+                variant="primary" 
+                size="large"
+                onClick={handleRequestQuote}
+              >
                 Request Quote
               </CTAButton>
             </div>
