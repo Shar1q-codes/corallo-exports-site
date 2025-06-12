@@ -37,19 +37,19 @@ export default function Footer() {
     {
       icon: <Mail size={18} />,
       label: "Email",
-      value: "info@coralloexim.com",
+      value: "adeel@coralloexim.com",
       href: "mailto:info@coralloexim.com",
     },
     {
       icon: <Phone size={18} />,
       label: "Phone",
-      value: "+91 (123) 456-7890",
+      value: "+91 9247 885 724",
       href: "tel:+911234567890",
     },
     {
       icon: <MapPin size={18} />,
       label: "Location",
-      value: "Mumbai, India",
+      value: "Hyderabad, India",
     },
   ];
 
