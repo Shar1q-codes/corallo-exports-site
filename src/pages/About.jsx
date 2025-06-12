@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { Shield, Users, Globe, TrendingUp, CheckCircle, Award } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import FadeInView from "../components/FadeInView";
 import CTAButton from "../components/CTAButton";
 import styles from "../styles/About.module.css";
 
 export default function About() {
+  const navigate = useNavigate();
+
   const coreValues = [
     {
       icon: <Shield size={32} />,
@@ -34,6 +37,10 @@ export default function About() {
     { number: "15+", label: "Years Experience" },
     { number: "98%", label: "Client Satisfaction" }
   ];
+
+  const handleStartTrading = () => {
+    navigate('/products');
+  };
 
   return (
     <motion.div
@@ -260,7 +267,11 @@ export default function About() {
                 Join our network of successful traders and experience the difference that 
                 professional brokerage services can make for your business.
               </p>
-              <CTAButton variant="primary" size="large">
+              <CTAButton 
+                variant="primary" 
+                size="large"
+                onClick={handleStartTrading}
+              >
                 Start Trading Today
               </CTAButton>
             </div>
