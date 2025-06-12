@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { CheckCircle, Globe, TrendingUp, FileText, Shield, Users } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import FadeInView from "../components/FadeInView";
 import CTAButton from "../components/CTAButton";
 import styles from "../styles/Services.module.css";
 
 export default function Services() {
+  const navigate = useNavigate();
+
   const services = [
     {
       icon: <CheckCircle size={48} />,
@@ -54,6 +57,10 @@ export default function Services() {
       description: "We provide ongoing support until successful completion"
     }
   ];
+
+  const handleGetStarted = () => {
+    navigate('/products');
+  };
 
   return (
     <motion.div
@@ -200,7 +207,11 @@ export default function Services() {
                 Let our experienced team help you navigate the complexities of international trade 
                 and connect you with the right partners for your business success.
               </p>
-              <CTAButton variant="primary" size="large">
+              <CTAButton 
+                variant="primary" 
+                size="large"
+                onClick={handleGetStarted}
+              >
                 Get Started Today
               </CTAButton>
             </div>
