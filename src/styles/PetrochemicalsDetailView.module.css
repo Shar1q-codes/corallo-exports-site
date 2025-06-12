@@ -67,7 +67,7 @@
 }
 
 .navigation {
-  width: 300px;
+  width: 320px;
   background: var(--bg-primary);
   border-right: 1px solid rgba(201, 138, 95, 0.2);
   padding: var(--spacing-xl);
@@ -82,13 +82,27 @@
   font-weight: 600;
 }
 
-.navigation ul {
+.mobileMenuToggle {
+  display: none;
+  width: 100%;
+  background: none;
+  border: 1px solid rgba(201, 138, 95, 0.3);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  color: var(--color-rust);
+  cursor: pointer;
+  margin-bottom: var(--spacing-lg);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigationList {
   list-style: none;
   padding: 0;
   margin: 0 0 var(--spacing-xl) 0;
 }
 
-.navigation li {
+.navigationList li {
   margin-bottom: var(--spacing-xs);
 }
 
@@ -107,6 +121,8 @@
   color: var(--text-secondary);
   font-weight: 500;
   border: 1px solid transparent;
+  font-size: 0.9rem;
+  line-height: 1.3;
 }
 
 .navItem:hover {
@@ -192,9 +208,17 @@
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: var(--spacing-md);
+  font-size: 1.05rem;
 }
 
 .section ul {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+  padding-left: var(--spacing-lg);
+}
+
+.section ol {
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: var(--spacing-lg);
@@ -207,10 +231,32 @@
 
 .section li strong {
   color: var(--color-rust);
+  font-weight: 600;
+}
+
+.procedureSection {
+  background: var(--bg-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(201, 138, 95, 0.2);
+  margin: var(--spacing-lg) 0;
+  transition: all var(--transition-normal);
+}
+
+.procedureSection:hover {
+  border-color: var(--color-copper);
+  box-shadow: var(--shadow-sm);
+}
+
+.procedureSection h4 {
+  color: var(--color-rust);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.125rem;
+  font-weight: 600;
 }
 
 /* Tables */
-.hsTable {
+.responsibilityTable {
   width: 100%;
   border-collapse: collapse;
   margin: var(--spacing-lg) 0;
@@ -220,106 +266,79 @@
   box-shadow: var(--shadow-sm);
 }
 
-.hsTable th {
+.responsibilityTable th {
   background: var(--color-rust);
   color: var(--color-white);
   padding: var(--spacing-md);
   text-align: left;
   font-weight: 600;
+  font-size: 0.95rem;
 }
 
-.hsTable td {
+.responsibilityTable td {
   padding: var(--spacing-md);
   border-bottom: 1px solid rgba(201, 138, 95, 0.2);
   color: var(--text-secondary);
+  font-size: 0.95rem;
 }
 
-.hsTable tr:hover {
+.responsibilityTable tr:hover {
   background: rgba(179, 71, 39, 0.05);
 }
 
-/* Cards */
-.specCard,
-.packagingSection,
-.storageCard,
-.standardCard,
-.complianceCard,
-.testingSection,
-.logisticsCard,
-.docSection,
-.marketCard,
-.segmentCard {
-  background: var(--bg-primary);
+.responsibilityMatrix {
+  margin: var(--spacing-xl) 0;
+}
+
+.responsibilityMatrix h4 {
+  color: var(--color-rust);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Special boxes */
+.noteBox,
+.advantagesBox,
+.timelineBox,
+.criticalPoints {
+  background: linear-gradient(135deg, rgba(179, 71, 39, 0.05) 0%, rgba(201, 138, 95, 0.05) 100%);
   padding: var(--spacing-lg);
   border-radius: var(--radius-md);
-  border: 1px solid rgba(201, 138, 95, 0.2);
-  margin: var(--spacing-lg) 0;
-  transition: all var(--transition-normal);
+  border-left: 4px solid var(--color-copper);
+  margin: var(--spacing-xl) 0;
 }
 
-.specCard:hover,
-.packagingSection:hover,
-.storageCard:hover,
-.standardCard:hover,
-.complianceCard:hover,
-.testingSection:hover,
-.logisticsCard:hover,
-.docSection:hover,
-.marketCard:hover,
-.segmentCard:hover {
-  border-color: var(--color-copper);
-  box-shadow: var(--shadow-sm);
-}
-
-.specCard h4,
-.packagingSection h4,
-.storageCard h4,
-.standardCard h4,
-.complianceCard h4,
-.testingSection h4,
-.logisticsCard h4,
-.docSection h4,
-.marketCard h4,
-.segmentCard h4 {
+.noteBox h4,
+.advantagesBox h4,
+.timelineBox h4,
+.criticalPoints h4 {
   color: var(--color-rust);
   margin-bottom: var(--spacing-md);
   font-size: 1.125rem;
   font-weight: 600;
 }
 
-.termsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
+.noteBox ul,
+.advantagesBox ul,
+.timelineBox ul,
+.criticalPoints ul {
+  margin-bottom: 0;
 }
 
-.termCard {
-  background: var(--bg-primary);
-  padding: var(--spacing-lg);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(201, 138, 95, 0.2);
-  text-align: center;
-  transition: all var(--transition-normal);
-}
-
-.termCard:hover {
-  border-color: var(--color-copper);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
-.termCard h4 {
-  color: var(--color-rust);
-  margin-bottom: var(--spacing-sm);
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-
-.termCard p {
+.noteBox li,
+.advantagesBox li,
+.timelineBox li,
+.criticalPoints li {
   color: var(--text-secondary);
-  margin: 0;
-  font-size: 0.95rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.noteBox li strong,
+.advantagesBox li strong,
+.timelineBox li strong,
+.criticalPoints li strong {
+  color: var(--color-rust);
 }
 
 /* Responsive Design */
@@ -330,25 +349,31 @@
   
   .navigation {
     width: 100%;
-    max-height: 200px;
+    max-height: 250px;
     border-right: none;
     border-bottom: 1px solid rgba(201, 138, 95, 0.2);
   }
   
-  .navigation ul {
+  .mobileMenuToggle {
     display: flex;
-    flex-wrap: wrap;
+  }
+  
+  .navigationList {
+    display: none;
+    flex-direction: column;
     gap: var(--spacing-xs);
     margin-bottom: var(--spacing-lg);
   }
   
-  .navigation li {
-    margin-bottom: 0;
+  .navigationList.mobileOpen {
+    display: flex;
   }
   
   .navItem {
     padding: var(--spacing-sm) var(--spacing-md);
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .navItem svg {
@@ -381,17 +406,17 @@
     padding: var(--spacing-lg);
   }
   
-  .hsTable {
+  .responsibilityTable {
     font-size: 0.875rem;
   }
   
-  .hsTable th,
-  .hsTable td {
+  .responsibilityTable th,
+  .responsibilityTable td {
     padding: var(--spacing-sm);
   }
   
-  .termsGrid {
-    grid-template-columns: 1fr;
+  .procedureSection {
+    padding: var(--spacing-md);
   }
 }
 
@@ -412,12 +437,21 @@
     padding: var(--spacing-md);
   }
   
-  .navigation ul {
+  .navigationList {
     flex-direction: column;
   }
   
   .navItem {
     justify-content: flex-start;
+    font-size: 0.85rem;
+  }
+  
+  .responsibilityTable {
+    font-size: 0.8rem;
+  }
+  
+  .procedureSection {
+    padding: var(--spacing-sm);
   }
 }
 
