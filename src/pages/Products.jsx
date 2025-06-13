@@ -6,11 +6,13 @@ import FadeInView from "../components/FadeInView";
 import CTAButton from "../components/CTAButton";
 import SEOHead from "../components/SEOHead";
 import PetrochemicalsDetailView from "../components/PetrochemicalsDetailView";
+import PetrochemicalsProductsModal from "../components/PetrochemicalsProductsModal";
 import styles from "../styles/Products.module.css";
 
 export default function Products() {
   const navigate = useNavigate();
   const [showPetrochemicalsDetail, setShowPetrochemicalsDetail] = useState(false);
+  const [showPetrochemicalsProducts, setShowPetrochemicalsProducts] = useState(false);
 
   const products = [
     {
@@ -19,7 +21,8 @@ export default function Products() {
       description: "Wide range of petrochemical products including polymers, chemicals, and refined petroleum products sourced from verified global suppliers.",
       specifications: "Various grades and specifications",
       applications: "Manufacturing, Industrial, Chemical processing",
-      hasDetailView: true
+      hasDetailView: true,
+      hasProductsList: true
     },
     {
       icon: <Zap size={48} />,
@@ -77,6 +80,12 @@ export default function Products() {
   const handleLearnMore = (productTitle) => {
     if (productTitle === "Petrochemicals") {
       setShowPetrochemicalsDetail(true);
+    }
+  };
+
+  const handleShowProducts = (productTitle) => {
+    if (productTitle === "Petrochemicals") {
+      setShowPetrochemicalsProducts(true);
     }
   };
 
@@ -232,15 +241,26 @@ export default function Products() {
                         </div>
                       </div>
 
-                      {product.hasDetailView && (
+                      {(product.hasDetailView || product.hasProductsList) && (
                         <div className={styles.productActions}>
-                          <button
-                            className={styles.learnMoreButton}
-                            onClick={() => handleLearnMore(product.title)}
-                          >
-                            Learn More
-                            <ArrowRight size={16} />
-                          </button>
+                          {product.hasDetailView && (
+                            <button
+                              className={styles.learnMoreButton}
+                              onClick={() => handleLearnMore(product.title)}
+                            >
+                              Learn More
+                              <ArrowRight size={16} />
+                            </button>
+                          )}
+                          {product.hasProductsList && (
+                            <button
+                              className={styles.productsButton}
+                              onClick={() => handleShowProducts(product.title)}
+                            >
+                              Products
+                              <ArrowRight size={16} />
+                            </button>
+                          )}
                         </div>
                       )}
                     </div>
@@ -371,6 +391,12 @@ export default function Products() {
       <PetrochemicalsDetailView
         isOpen={showPetrochemicalsDetail}
         onClose={() => setShowPetrochemicalsDetail(false)}
+      />
+
+      {/* Petrochemicals Products Modal */}
+      <PetrochemicalsProductsModal
+        isOpen={showPetrochemicalsProducts}
+        onClose={() => setShowPetrochemicalsProducts(false)}
       />
     </>
   );

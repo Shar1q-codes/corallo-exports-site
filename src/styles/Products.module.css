@@ -193,9 +193,13 @@
 .productActions {
   margin-top: auto;
   padding-top: var(--spacing-md);
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
 }
 
-.learnMoreButton {
+.learnMoreButton,
+.productsButton {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -209,6 +213,13 @@
   transition: all var(--transition-fast);
   text-decoration: none;
   font-size: 0.95rem;
+  flex: 1;
+  justify-content: center;
+  min-width: 120px;
+}
+
+.productsButton {
+  background: var(--color-copper);
 }
 
 .learnMoreButton:hover {
@@ -217,11 +228,19 @@
   box-shadow: var(--shadow-md);
 }
 
-.learnMoreButton svg {
+.productsButton:hover {
+  background: var(--color-secondary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.learnMoreButton svg,
+.productsButton svg {
   transition: transform var(--transition-fast);
 }
 
-.learnMoreButton:hover svg {
+.learnMoreButton:hover svg,
+.productsButton:hover svg {
   transform: translateX(4px);
 }
 
@@ -420,6 +439,16 @@
   
   .productIcon {
     height: 100px;
+  }
+  
+  .productActions {
+    flex-direction: column;
+  }
+  
+  .learnMoreButton,
+  .productsButton {
+    flex: none;
+    width: 100%;
   }
   
   .industriesGrid {
