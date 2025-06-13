@@ -30,7 +30,7 @@ export default function NotFound() {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <section className="section">
+        <section className="section" aria-labelledby="not-found-heading">
           <div className="container">
             <motion.div
               className={styles.content}
@@ -38,8 +38,8 @@ export default function NotFound() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className={styles.errorCode}>404</div>
-              <h1>Page Not Found</h1>
+              <div className={styles.errorCode} aria-hidden="true">404</div>
+              <h1 id="not-found-heading">Page Not Found</h1>
               <p className={styles.subtitle}>
                 Looks like you've wandered off the trade route. The page you're looking for 
                 doesn't exist or has been moved to a new location.
@@ -59,6 +59,7 @@ export default function NotFound() {
                   variant="primary" 
                   size="large"
                   icon={<Home size={20} />}
+                  aria-label="Go to Corallo homepage"
                 >
                   Go Home
                 </CTAButton>
@@ -67,29 +68,32 @@ export default function NotFound() {
                   size="large"
                   onClick={() => window.history.back()}
                   icon={<ArrowLeft size={20} />}
+                  aria-label="Go back to previous page"
                 >
                   Go Back
                 </CTAButton>
               </div>
               
-              <div className={styles.quickLinks}>
-                <h3>Quick Navigation</h3>
-                <div className={styles.linksGrid}>
+              <nav className={styles.quickLinks} aria-labelledby="quick-nav-heading">
+                <h3 id="quick-nav-heading">Quick Navigation</h3>
+                <div className={styles.linksGrid} role="list">
                   {quickLinks.map((link) => (
                     <Link
                       key={link.to}
                       to={link.to}
                       className={styles.quickLink}
+                      role="listitem"
+                      aria-label={`Navigate to ${link.label} page`}
                     >
-                      {link.icon}
+                      <span aria-hidden="true">{link.icon}</span>
                       <span>{link.label}</span>
                     </Link>
                   ))}
                 </div>
-              </div>
+              </nav>
               
-              <div className={styles.helpSection}>
-                <h3>Need Help?</h3>
+              <section className={styles.helpSection} aria-labelledby="help-heading">
+                <h3 id="help-heading">Need Help?</h3>
                 <p>
                   If you were looking for specific trade information or services, 
                   our team is here to assist you.
@@ -100,10 +104,11 @@ export default function NotFound() {
                   variant="secondary" 
                   size="medium"
                   icon={<Mail size={20} />}
+                  aria-label="Contact Corallo support team for assistance"
                 >
                   Contact Support
                 </CTAButton>
-              </div>
+              </section>
             </motion.div>
           </div>
         </section>

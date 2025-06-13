@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import FadeInView from "../components/FadeInView";
 import CTAButton from "../components/CTAButton";
 import SEOHead from "../components/SEOHead";
@@ -94,7 +95,7 @@ export default function FAQs() {
         transition={{ duration: 0.5 }}
       >
         {/* Hero Section */}
-        <section className={styles.heroSection}>
+        <section className={styles.heroSection} aria-labelledby="faqs-hero-heading">
           <div className="container">
             <motion.div
               className={styles.heroContent}
@@ -102,7 +103,7 @@ export default function FAQs() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1>Frequently Asked Questions</h1>
+              <h1 id="faqs-hero-heading">Frequently Asked Questions</h1>
               <p className={styles.subtitle}>
                 Find answers to common questions about our services
               </p>
@@ -115,32 +116,35 @@ export default function FAQs() {
         </section>
 
         {/* FAQs Section */}
-        <section className={styles.faqsSection}>
+        <section className={styles.faqsSection} aria-labelledby="common-questions-heading">
           <div className="container">
             <FadeInView>
               <div className={styles.sectionHeader}>
-                <h2>Common Questions</h2>
+                <h2 id="common-questions-heading">Common Questions</h2>
                 <p>Everything you need to know about working with Corallo</p>
               </div>
             </FadeInView>
 
-            <div className={styles.faqsContainer}>
+            <div className={styles.faqsContainer} role="list">
               {faqs.map((faq, index) => (
                 <FadeInView key={index} delay={0.05 * index}>
-                  <article className={styles.faqItem} itemScope itemType="https://schema.org/Question">
+                  <article className={styles.faqItem} itemScope itemType="https://schema.org/Question" role="listitem">
                     <button
                       className={`${styles.faqQuestion} ${openFAQ === index ? styles.active : ''}`}
                       onClick={() => toggleFAQ(index)}
+                      aria-expanded={openFAQ === index}
+                      aria-controls={`faq-answer-${index}`}
                     >
                       <span itemProp="name">{faq.question}</span>
                       {openFAQ === index ? (
-                        <ChevronUp size={24} />
+                        <ChevronUp size={24} aria-hidden="true" />
                       ) : (
-                        <ChevronDown size={24} />
+                        <ChevronDown size={24} aria-hidden="true" />
                       )}
                     </button>
                     
                     <motion.div
+                      id={`faq-answer-${index}`}
                       className={styles.faqAnswer}
                       initial={false}
                       animate={{
@@ -161,37 +165,55 @@ export default function FAQs() {
         </section>
 
         {/* Quick Links */}
-        <section className={styles.quickLinksSection}>
+        <section className={styles.quickLinksSection} aria-labelledby="still-questions-heading">
           <div className="container">
             <FadeInView>
               <div className={styles.quickLinksContent}>
-                <h2>Still Have Questions?</h2>
+                <h2 id="still-questions-heading">Still Have Questions?</h2>
                 <p>
                   Can't find the answer you're looking for? Our team is here to help you with 
                   any specific questions about our trade brokerage services.
                 </p>
                 
-                <div className={styles.quickLinksGrid}>
-                  <article className={styles.quickLinkCard}>
+                <div className={styles.quickLinksGrid} role="list">
+                  <article className={styles.quickLinkCard} role="listitem">
                     <h3>Contact Our Team</h3>
                     <p>Speak directly with our trade experts</p>
-                    <CTAButton variant="primary" size="medium">
+                    <CTAButton 
+                      as={Link}
+                      to="/contact"
+                      variant="primary" 
+                      size="medium"
+                      aria-label="Contact Corallo's trade experts for personalized assistance"
+                    >
                       Contact Us
                     </CTAButton>
                   </article>
                   
-                  <article className={styles.quickLinkCard}>
+                  <article className={styles.quickLinkCard} role="listitem">
                     <h3>Our Services</h3>
                     <p>Learn more about our brokerage services</p>
-                    <CTAButton variant="outline" size="medium">
+                    <CTAButton 
+                      as={Link}
+                      to="/services"
+                      variant="outline" 
+                      size="medium"
+                      aria-label="Learn more about Corallo's trade brokerage services"
+                    >
                       View Services
                     </CTAButton>
                   </article>
                   
-                  <article className={styles.quickLinkCard}>
+                  <article className={styles.quickLinkCard} role="listitem">
                     <h3>Get Started</h3>
                     <p>Ready to begin your trade journey?</p>
-                    <CTAButton variant="secondary" size="medium">
+                    <CTAButton 
+                      as={Link}
+                      to="/products"
+                      variant="secondary" 
+                      size="medium"
+                      aria-label="Start trading with Corallo - View our products"
+                    >
                       Start Trading
                     </CTAButton>
                   </article>

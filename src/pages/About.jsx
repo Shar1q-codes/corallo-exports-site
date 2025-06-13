@@ -77,7 +77,7 @@ export default function About() {
         transition={{ duration: 0.5 }}
       >
         {/* Hero Section with Image */}
-        <section className={styles.heroSection}>
+        <section className={styles.heroSection} aria-labelledby="about-hero-heading">
           <div className="container">
             <div className={styles.heroGrid}>
               <motion.div
@@ -86,7 +86,7 @@ export default function About() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1>About Corallo</h1>
+                <h1 id="about-hero-heading">About Corallo</h1>
                 <p className={styles.subtitle}>
                   Your trusted partner in global trade and commerce
                 </p>
@@ -114,12 +114,12 @@ export default function About() {
         </section>
 
         {/* Mission Section */}
-        <section className={styles.missionSection}>
+        <section className={styles.missionSection} aria-labelledby="mission-heading">
           <div className="container">
             <div className={styles.missionGrid}>
               <FadeInView>
                 <article className={styles.missionContent}>
-                  <h2>Our Mission</h2>
+                  <h2 id="mission-heading">Our Mission</h2>
                   <p>
                     To facilitate seamless international trade by connecting verified buyers and sellers 
                     through our extensive global network. We specialize in commission-based brokerage 
@@ -133,15 +133,15 @@ export default function About() {
                   
                   <div className={styles.highlights}>
                     <div className={styles.highlight}>
-                      <CheckCircle size={24} />
+                      <CheckCircle size={24} aria-hidden="true" />
                       <span>Commission-based brokerage model</span>
                     </div>
                     <div className={styles.highlight}>
-                      <CheckCircle size={24} />
+                      <CheckCircle size={24} aria-hidden="true" />
                       <span>No inventory or manufacturing</span>
                     </div>
                     <div className={styles.highlight}>
-                      <CheckCircle size={24} />
+                      <CheckCircle size={24} aria-hidden="true" />
                       <span>Focus on trade facilitation</span>
                     </div>
                   </div>
@@ -149,9 +149,9 @@ export default function About() {
               </FadeInView>
               
               <FadeInView delay={0.2}>
-                <div className={styles.achievementsGrid}>
+                <div className={styles.achievementsGrid} role="list" aria-label="Company achievements">
                   {achievements.map((achievement, index) => (
-                    <div key={index} className={styles.achievementCard}>
+                    <div key={index} className={styles.achievementCard} role="listitem">
                       <div className={styles.achievementNumber}>{achievement.number}</div>
                       <div className={styles.achievementLabel}>{achievement.label}</div>
                     </div>
@@ -163,20 +163,20 @@ export default function About() {
         </section>
 
         {/* Core Values Section */}
-        <section className={styles.valuesSection}>
+        <section className={styles.valuesSection} aria-labelledby="values-heading">
           <div className="container">
             <FadeInView>
               <div className={styles.sectionHeader}>
-                <h2>Our Core Values</h2>
+                <h2 id="values-heading">Our Core Values</h2>
                 <p>The principles that guide every aspect of our brokerage services</p>
               </div>
             </FadeInView>
 
-            <div className={styles.valuesGrid}>
+            <div className={styles.valuesGrid} role="list">
               {coreValues.map((value, index) => (
                 <FadeInView key={index} delay={0.1 * index}>
-                  <article className={styles.valueCard}>
-                    <div className={styles.valueIcon}>{value.icon}</div>
+                  <article className={styles.valueCard} role="listitem">
+                    <div className={styles.valueIcon} aria-hidden="true">{value.icon}</div>
                     <h3>{value.title}</h3>
                     <p>{value.description}</p>
                   </article>
@@ -187,12 +187,12 @@ export default function About() {
         </section>
 
         {/* Global Presence Section with Map */}
-        <section className={styles.globalSection}>
+        <section className={styles.globalSection} aria-labelledby="global-heading">
           <div className="container">
             <div className={styles.globalGrid}>
               <FadeInView>
                 <article className={styles.globalContent}>
-                  <h2>Global Trade Network</h2>
+                  <h2 id="global-heading">Global Trade Network</h2>
                   <p>
                     Our extensive network spans across 50+ countries, connecting businesses with 
                     verified suppliers and buyers worldwide. We have established strong partnerships 
@@ -206,14 +206,14 @@ export default function About() {
                   
                   <div className={styles.globalHighlights}>
                     <div className={styles.globalItem}>
-                      <Globe size={24} />
+                      <Globe size={24} aria-hidden="true" />
                       <div>
                         <h4>50+ Countries</h4>
                         <p>Active trading partnerships worldwide</p>
                       </div>
                     </div>
                     <div className={styles.globalItem}>
-                      <Award size={24} />
+                      <Award size={24} aria-hidden="true" />
                       <div>
                         <h4>Verified Network</h4>
                         <p>All partners undergo rigorous verification</p>
@@ -237,12 +237,12 @@ export default function About() {
         </section>
 
         {/* Experience Section */}
-        <section className={styles.experienceSection}>
+        <section className={styles.experienceSection} aria-labelledby="experience-heading">
           <div className="container">
             <div className={styles.experienceGrid}>
               <FadeInView>
                 <article className={styles.experienceContent}>
-                  <h2>15+ Years of Trade Excellence</h2>
+                  <h2 id="experience-heading">15+ Years of Trade Excellence</h2>
                   <p>
                     Since our establishment, Corallo has built a reputation as a reliable trade broker 
                     in the global marketplace. Our team of experienced professionals understands the 
@@ -256,14 +256,14 @@ export default function About() {
                   
                   <div className={styles.experienceHighlights}>
                     <div className={styles.experienceItem}>
-                      <Award size={24} />
+                      <Award size={24} aria-hidden="true" />
                       <div>
                         <h4>Industry Recognition</h4>
                         <p>Recognized for excellence in trade brokerage services</p>
                       </div>
                     </div>
                     <div className={styles.experienceItem}>
-                      <Globe size={24} />
+                      <Globe size={24} aria-hidden="true" />
                       <div>
                         <h4>Global Reach</h4>
                         <p>Active partnerships across 5 continents</p>
@@ -287,11 +287,11 @@ export default function About() {
         </section>
 
         {/* CTA Section */}
-        <section className={styles.ctaSection}>
+        <section className={styles.ctaSection} aria-labelledby="about-cta-heading">
           <div className="container text-center">
             <FadeInView>
               <div className={styles.ctaContent}>
-                <h2>Ready to Partner with Us?</h2>
+                <h2 id="about-cta-heading">Ready to Partner with Us?</h2>
                 <p>
                   Join our network of successful traders and experience the difference that 
                   professional brokerage services can make for your business.
@@ -300,6 +300,7 @@ export default function About() {
                   variant="primary" 
                   size="large"
                   onClick={handleStartTrading}
+                  aria-label="Start trading with Corallo - View our products and services"
                 >
                   Start Trading Today
                 </CTAButton>
