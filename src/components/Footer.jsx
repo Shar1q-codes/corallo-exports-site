@@ -38,13 +38,13 @@ export default function Footer() {
       icon: <Mail size={18} />,
       label: "Email",
       value: "adeel@coralloexim.com",
-      href: "mailto:info@coralloexim.com",
+      href: "mailto:adeel@coralloexim.com",
     },
     {
       icon: <Phone size={18} />,
       label: "Phone",
       value: "+91 9247 885 724",
-      href: "tel:+911234567890",
+      href: "tel:+919247885724",
     },
     {
       icon: <MapPin size={18} />,
@@ -54,7 +54,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} role="contentinfo">
       <div className="container">
         <div className={styles.footerContent}>
           {/* Brand Section */}
@@ -83,7 +83,7 @@ export default function Footer() {
               viewport={{ once: true }}
             >
               <h4>{section.title}</h4>
-              <ul>
+              <ul role="list">
                 {section.links.map((link) => (
                   <li key={link.label}>
                     <Link to={link.to}>{link.label}</Link>
@@ -102,15 +102,17 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h4>Contact Info</h4>
-            <ul>
+            <ul role="list">
               {contactInfo.map((item, index) => (
                 <li key={index}>
                   <div className={styles.contactItem}>
-                    <span className={styles.contactIcon}>{item.icon}</span>
+                    <span className={styles.contactIcon} aria-hidden="true">{item.icon}</span>
                     <div>
                       <span className={styles.contactLabel}>{item.label}</span>
                       {item.href ? (
-                        <a href={item.href}>{item.value}</a>
+                        <a href={item.href} aria-label={`${item.label}: ${item.value}`}>
+                          {item.value}
+                        </a>
                       ) : (
                         <span>{item.value}</span>
                       )}
@@ -136,7 +138,7 @@ export default function Footer() {
           <button
             className={styles.scrollToTop}
             onClick={scrollToTop}
-            aria-label="Scroll to top"
+            aria-label="Scroll to top of page"
           >
             <ArrowUp size={20} />
           </button>

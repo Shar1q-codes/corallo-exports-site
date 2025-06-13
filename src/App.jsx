@@ -16,8 +16,10 @@ export default function App() {
   return (
     <HelmetProvider>
       <ScrollToTop />
-      <Navbar />
-      <main>
+      <nav role="navigation" aria-label="Main navigation">
+        <Navbar />
+      </nav>
+      <main role="main">
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Home />} />

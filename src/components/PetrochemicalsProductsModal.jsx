@@ -34,6 +34,9 @@ export default function PetrochemicalsProductsModal({ isOpen, onClose }) {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
         onClick={onClose}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
       >
         <motion.div
           className={styles.modal}
@@ -43,23 +46,23 @@ export default function PetrochemicalsProductsModal({ isOpen, onClose }) {
           transition={{ duration: 0.3, ease: "easeOut" }}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className={styles.header}>
-            <h2>Petrochemical Products</h2>
+          <header className={styles.header}>
+            <h2 id="modal-title">Petrochemical Products</h2>
             <button
               className={styles.closeButton}
               onClick={onClose}
-              aria-label="Close modal"
+              aria-label="Close petrochemical products modal"
             >
               <X size={24} />
             </button>
-          </div>
+          </header>
           
           <div className={styles.content}>
             <p className={styles.description}>
               Our extensive range of petrochemical products sourced from verified global suppliers:
             </p>
             
-            <div className={styles.productsList}>
+            <div className={styles.productsList} role="list">
               {products.map((product, index) => (
                 <motion.div
                   key={index}
@@ -67,18 +70,19 @@ export default function PetrochemicalsProductsModal({ isOpen, onClose }) {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
+                  role="listitem"
                 >
                   <span className={styles.productName}>{product}</span>
                 </motion.div>
               ))}
             </div>
             
-            <div className={styles.footer}>
+            <footer className={styles.footer}>
               <p className={styles.note}>
                 All products are available through our verified supplier network. 
                 Contact us for specific requirements, quantities, and pricing.
               </p>
-            </div>
+            </footer>
           </div>
         </motion.div>
       </motion.div>

@@ -13,6 +13,7 @@ export default function CTAButton({
   disabled = false,
   className = "",
   icon,
+  "aria-label": ariaLabel,
   ...props
 }) {
   const baseClasses = `${styles.button} ${styles[variant]} ${styles[size]} ${className}`;
@@ -33,6 +34,7 @@ export default function CTAButton({
         href={href}
         onClick={onClick}
         disabled={disabled}
+        aria-label={ariaLabel}
         {...props}
       >
         {content}
@@ -53,6 +55,7 @@ export default function CTAButton({
       whileHover={{ scale: disabled ? 1 : 1.02 }}
       whileTap={{ scale: disabled ? 1 : 0.98 }}
       transition={{ duration: 0.2 }}
+      aria-label={ariaLabel}
       {...props}
     >
       {content}

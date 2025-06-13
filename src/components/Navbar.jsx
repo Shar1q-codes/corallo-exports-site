@@ -23,10 +23,12 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
+      role="navigation"
+      aria-label="Main navigation"
     >
       <div className="container">
         <div className={styles.navContent}>
-          <Link to="/" className={styles.logo}>
+          <Link to="/" className={styles.logo} aria-label="Corallo Export Import - Home">
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -50,6 +52,7 @@ export default function Navbar() {
                   className={`${styles.navLink} ${
                     location.pathname === item.path ? styles.active : ""
                   }`}
+                  aria-current={location.pathname === item.path ? "page" : undefined}
                 >
                   {item.label}
                 </Link>
@@ -61,7 +64,9 @@ export default function Navbar() {
           <button
             className={styles.mobileMenuBtn}
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -70,11 +75,13 @@ export default function Navbar() {
         {/* Mobile Navigation */}
         {isOpen && (
           <motion.div
+            id="mobile-navigation"
             className={styles.mobileNav}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
+            role="menu"
           >
             {navItems.map((item) => (
               <Link
@@ -84,6 +91,8 @@ export default function Navbar() {
                   location.pathname === item.path ? styles.active : ""
                 }`}
                 onClick={() => setIsOpen(false)}
+                role="menuitem"
+                aria-current={location.pathname === item.path ? "page" : undefined}
               >
                 {item.label}
               </Link>

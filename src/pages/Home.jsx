@@ -110,11 +110,21 @@ export default function Home() {
               </div>
 
               <div className={styles.heroActions}>
-                <Link to="/products" className={styles.startTradingButton}>
+                <Link 
+                  to="/products" 
+                  className={styles.startTradingButton}
+                  aria-label="Start trading with Corallo - View our products"
+                >
                   <span>Start Trading</span>
                   <ArrowRight size={20} />
                 </Link>
-                <CTAButton as={Link} to="/about" variant="outline" size="large">
+                <CTAButton 
+                  as={Link} 
+                  to="/about" 
+                  variant="outline" 
+                  size="large"
+                  aria-label="Learn more about Corallo's trade brokerage services"
+                >
                   Learn More
                 </CTAButton>
               </div>
@@ -123,11 +133,11 @@ export default function Home() {
         </section>
 
         {/* Features Section */}
-        <section className="section bg-primary">
+        <section className="section bg-primary" aria-labelledby="features-heading">
           <div className="container">
             <FadeInView>
               <div className={styles.sectionHeader}>
-                <h2>Why Choose Corallo</h2>
+                <h2 id="features-heading">Why Choose Corallo</h2>
                 <p>We provide comprehensive trade brokerage services with a focus on transparency, reliability, and global reach.</p>
               </div>
             </FadeInView>
@@ -136,7 +146,7 @@ export default function Home() {
               {features.map((feature, index) => (
                 <FadeInView key={index} delay={0.2 * index}>
                   <article className={styles.featureCard}>
-                    <div className={styles.featureIcon}>{feature.icon}</div>
+                    <div className={styles.featureIcon} aria-hidden="true">{feature.icon}</div>
                     <h3>{feature.title}</h3>
                     <p>{feature.description}</p>
                   </article>
@@ -147,12 +157,12 @@ export default function Home() {
         </section>
 
         {/* About Preview Section */}
-        <section className={styles.aboutPreview}>
+        <section className={styles.aboutPreview} aria-labelledby="about-preview-heading">
           <div className="container">
             <div className={styles.aboutGrid}>
               <FadeInView>
                 <article className={styles.aboutContent}>
-                  <h2>Your Trusted Trade Partner</h2>
+                  <h2 id="about-preview-heading">Your Trusted Trade Partner</h2>
                   <p className={styles.aboutDescription}>
                     With over 15 years of experience in international trade, Corallo has established 
                     itself as a reliable bridge between global buyers and sellers. We specialize in 
@@ -166,20 +176,26 @@ export default function Home() {
                   
                   <div className={styles.aboutHighlights}>
                     <div className={styles.highlight}>
-                      <CheckCircle size={20} />
+                      <CheckCircle size={20} aria-hidden="true" />
                       <span>Commission-based model</span>
                     </div>
                     <div className={styles.highlight}>
-                      <CheckCircle size={20} />
+                      <CheckCircle size={20} aria-hidden="true" />
                       <span>Verified global network</span>
                     </div>
                     <div className={styles.highlight}>
-                      <CheckCircle size={20} />
+                      <CheckCircle size={20} aria-hidden="true" />
                       <span>Transparent processes</span>
                     </div>
                   </div>
 
-                  <CTAButton as={Link} to="/about" variant="secondary" size="medium">
+                  <CTAButton 
+                    as={Link} 
+                    to="/about" 
+                    variant="secondary" 
+                    size="medium"
+                    aria-label="Learn more about Corallo's company history and values"
+                  >
                     Learn More About Us
                   </CTAButton>
                 </article>
@@ -199,11 +215,11 @@ export default function Home() {
         </section>
 
         {/* Services Preview */}
-        <section className={styles.servicesPreview}>
+        <section className={styles.servicesPreview} aria-labelledby="services-preview-heading">
           <div className="container">
             <FadeInView>
               <div className={styles.sectionHeader}>
-                <h2>Our Trade Services</h2>
+                <h2 id="services-preview-heading">Our Trade Services</h2>
                 <p>Comprehensive brokerage solutions for international trade</p>
               </div>
             </FadeInView>
@@ -211,7 +227,7 @@ export default function Home() {
             <div className={styles.servicesGrid}>
               <FadeInView delay={0.1}>
                 <article className={styles.serviceCard}>
-                  <div className={styles.serviceIcon}>
+                  <div className={styles.serviceIcon} aria-hidden="true">
                     <CheckCircle size={32} />
                   </div>
                   <h3>Verified Sourcing</h3>
@@ -221,7 +237,7 @@ export default function Home() {
               
               <FadeInView delay={0.2}>
                 <article className={styles.serviceCard}>
-                  <div className={styles.serviceIcon}>
+                  <div className={styles.serviceIcon} aria-hidden="true">
                     <TrendingUp size={32} />
                   </div>
                   <h3>Market Intelligence</h3>
@@ -231,7 +247,7 @@ export default function Home() {
               
               <FadeInView delay={0.3}>
                 <article className={styles.serviceCard}>
-                  <div className={styles.serviceIcon}>
+                  <div className={styles.serviceIcon} aria-hidden="true">
                     <Globe size={32} />
                   </div>
                   <h3>Global Logistics</h3>
@@ -243,16 +259,20 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className={styles.ctaSection}>
+        <section className={styles.ctaSection} aria-labelledby="cta-heading">
           <div className="container text-center">
             <FadeInView>
               <div className={styles.ctaContent}>
-                <h2>Ready to Expand Your Business?</h2>
+                <h2 id="cta-heading">Ready to Expand Your Business?</h2>
                 <p className={styles.ctaText}>
                   Let us help you navigate the complexities of international trade with our 
                   expert brokerage services and global network of verified partners.
                 </p>
-                <Link to="/contact" className={styles.contactUsButton}>
+                <Link 
+                  to="/contact" 
+                  className={styles.contactUsButton}
+                  aria-label="Contact Corallo for trade inquiries and business partnerships"
+                >
                   <span>Contact Us Today</span>
                   <ArrowRight size={20} />
                 </Link>
